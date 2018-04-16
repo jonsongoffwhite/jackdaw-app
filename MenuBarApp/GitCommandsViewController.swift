@@ -14,6 +14,8 @@ class GitCommandsViewController: NSViewController {
     @IBOutlet weak var abletonStatus: NSTextField?
     @IBOutlet weak var refreshStatusButton: NSButton?
     
+    var git: GitHandler?
+    
     //TODO: Check it has .git subdir
     var directory: String?
 
@@ -24,23 +26,11 @@ class GitCommandsViewController: NSViewController {
         refreshStatusButton?.action = #selector(refreshStatus(_:))
         
         if let dir = directory {
+            git = GitHandler(for: dir)
             projectName.stringValue = String(dir.split(separator: "/").last!)
-            projectName.stringValue += ", is Git: \(isGitDirectory())"
+            projectName.stringValue += ", is Git: \(git!.isGitDirectory())"
         }
         
-    }
-    
-    /*
-    ** Determines whether the provided directory is yet a git directory
-    ** by checking for the existence of the .git hidden directory
-    ** present in all git repositories
-    */
-    func isGitDirectory() -> Bool {
-        guard let dir = directory else {
-            return false
-        }
-        let manager = FileManager()
-        return manager.fileExists(atPath: dir + "/.git")
     }
     
     @objc func refreshStatus(_ sender: Any?) {
