@@ -13,6 +13,8 @@
 		7E1D553120228B4B00EBD74A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D552F20228B4B00EBD74A /* Main.storyboard */; };
 		7E1D553D20228B4B00EBD74A /* MenuBarAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D553C20228B4B00EBD74A /* MenuBarAppTests.swift */; };
 		7E1D554820228B4B00EBD74A /* MenuBarAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D554720228B4B00EBD74A /* MenuBarAppUITests.swift */; };
+		7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */; };
+		7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E597E7020823DF8002E368D /* GitCommandsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		7E1D554320228B4B00EBD74A /* MenuBarAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuBarAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1D554720228B4B00EBD74A /* MenuBarAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarAppUITests.swift; sourceTree = "<group>"; };
 		7E1D554920228B4B00EBD74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSelectViewController.swift; sourceTree = "<group>"; };
+		7E597E7020823DF8002E368D /* GitCommandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitCommandsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				7E1D552920228B4B00EBD74A /* AppDelegate.swift */,
+				7E597E7020823DF8002E368D /* GitCommandsViewController.swift */,
+				7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */,
 				7E1D552B20228B4B00EBD74A /* ViewController.swift */,
 				7E1D552D20228B4B00EBD74A /* Assets.xcassets */,
 				7E1D552F20228B4B00EBD74A /* Main.storyboard */,
@@ -257,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */,
 				7E1D552C20228B4B00EBD74A /* ViewController.swift in Sources */,
+				7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */,
 				7E1D552A20228B4B00EBD74A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
