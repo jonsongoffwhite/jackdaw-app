@@ -67,24 +67,4 @@ class GitHandler {
         return "added: \n\n" + added + "\nmodified: \n\n" + modified
     }
     
-    private func shell(launchPath: String, arguments: [String]) -> String {
-        let task = Process()
-        task.launchPath = launchPath
-        task.arguments = arguments
-        
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        task.launch()
-        
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output: String = String(data: data, encoding: String.Encoding.utf8)!
-        
-        return output
-    }
-    
-    func bash(command: String, arguments: [String]) -> String {
-        let whichPathForCommand = shell(launchPath: "/bin/bash", arguments: [ "-l", "-c", "which \(command)" ])
-        return shell(launchPath: whichPathForCommand, arguments: arguments)
-    }
-    
 }
