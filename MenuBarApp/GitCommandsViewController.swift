@@ -23,8 +23,6 @@ class GitCommandsViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        refreshStatusButton?.action = #selector(refreshStatus(_:))
-        
         if let dir = directory {
             git = GitHandler(for: dir)
             projectName.stringValue = String(dir.split(separator: "/").last!)
@@ -33,19 +31,8 @@ class GitCommandsViewController: NSViewController {
         
     }
     
-    @objc func refreshStatus(_ sender: Any?) {
-        let task = Process()
-        task.launchPath = "/usr/bin/top"
-        task.arguments = []
-        let pipe = Pipe()
-        task.standardError = pipe
-        task.standardOutput = pipe
-        task.launch()
-        task.waitUntilExit()
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as! String
-        
-        print(output)
+    @IBAction func refreshStatus(_ sender: Any?) {
+        print(git!.status())
     }
     
 }

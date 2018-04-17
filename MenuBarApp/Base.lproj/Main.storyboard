@@ -704,6 +704,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="refreshStatus:" target="XfG-lQ-9wD" id="cG3-gN-EUe"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9xk-SD-dLF">
                                 <rect key="frame" x="37" y="233" width="406" height="17"/>
@@ -778,7 +781,7 @@
                     </view>
                     <connections>
                         <outlet property="selectedDir" destination="KM2-k8-if0" id="Dv6-32-dhU"/>
-                        <segue destination="XfG-lQ-9wD" kind="modal" identifier="showGitCommands" id="aT8-3H-GX9"/>
+                        <segue destination="XfG-lQ-9wD" kind="popover" identifier="showGitCommands" popoverBehavior="t" preferredEdge="maxY" id="aT8-3H-GX9"/>
                     </connections>
                 </viewController>
                 <customObject id="9eR-Kc-4qf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

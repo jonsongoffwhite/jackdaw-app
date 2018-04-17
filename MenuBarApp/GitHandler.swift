@@ -10,6 +10,8 @@ import Foundation
 
 class GitHandler {
     
+    let manager = FileManager()
+    
     var directory: String
     
     init(for directory: String) {
@@ -22,12 +24,33 @@ class GitHandler {
      ** present in all git repositories
      */
     func isGitDirectory() -> Bool {
-        let manager = FileManager()
         return manager.fileExists(atPath: directory + "/.git")
     }
     
     func status() -> String {
-        return ""
+        var res = shell(launchPath: "/usr/bin/git", arguments: ["--version"])
+        print(res)
+        return res
+    }
+    
+    private func shell(launchPath: String, arguments: [String]) -> String {
+        let task = Process()
+        task.launchPath = launchPath
+        task.arguments = arguments
+        
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.launch()
+        
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output: String = String(data: data, encoding: String.Encoding.utf8)!
+        
+        return output
+    }
+    
+    func bash(command: String, arguments: [String]) -> String {
+        let whichPathForCommand = shell(launchPath: "/bin/bash", arguments: [ "-l", "-c", "which \(command)" ])
+        return shell(launchPath: whichPathForCommand, arguments: arguments)
     }
     
 }
