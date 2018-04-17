@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftGit2
+import Result
 
 class GitHandler {
     
@@ -28,10 +29,42 @@ class GitHandler {
         return manager.fileExists(atPath: directory + "/.git")
     }
     
-    func status() -> String {
-        var res = shell(launchPath: "/usr/bin/git", arguments: ["--version"])
-        print(res)
-        return res
+    func statusDescription() -> String {
+        let repoRes: Result = Repository.at(URL(fileURLWithPath: directory))
+        guard let repo = repoRes.value else {
+            return "Error"
+        }
+        
+        var added = ""
+        var modified = ""
+        
+        if let status = repo.status().value {
+            for file in status {
+                if let hti = file.headToIndex {
+                    let oldFileName = hti.oldFile?.path != nil ? hti.oldFile!.path : "nil"
+                    let newFileName = hti.newFile?.path != nil ? hti.newFile!.path : "nil"
+                    
+                    if oldFileName == newFileName {
+                        added += "\(oldFileName)\n"
+                    } else {
+                        added += "\(oldFileName) -> \(newFileName)\n"
+                    }
+                }
+                
+                if let itwd = file.indexToWorkDir {
+                    let oldFileName = itwd.oldFile?.path != nil ? itwd.oldFile!.path : "nil"
+                    let newFileName = itwd.newFile?.path != nil ? itwd.newFile!.path : "nil"
+                    
+                    if oldFileName == newFileName {
+                        modified += "\(oldFileName)\n"
+                    } else {
+                        modified += "\(oldFileName) -> \(newFileName)\n"
+                    }
+                }
+            }
+            
+        }
+        return "added: \n\n" + added + "\nmodified: \n\n" + modified
     }
     
     private func shell(launchPath: String, arguments: [String]) -> String {

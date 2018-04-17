@@ -16,8 +16,10 @@
 		7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */; };
 		7E3DF61F2084EF410006AAD8 /* GitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61E2084EF410006AAD8 /* GitHandler.swift */; };
 		7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E597E7020823DF8002E368D /* GitCommandsViewController.swift */; };
-		7E9869872086678C0041E630 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869852086678C0041E630 /* SwiftGit2.framework */; };
-		7E9869882086678C0041E630 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869862086678C0041E630 /* Result.framework */; };
+		7EA4A4E020866ABB0098C085 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869852086678C0041E630 /* SwiftGit2.framework */; };
+		7EA4A4E120866ABB0098C085 /* SwiftGit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869852086678C0041E630 /* SwiftGit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EA4A4E320866ABF0098C085 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869862086678C0041E630 /* Result.framework */; };
+		7EA4A4E420866ABF0098C085 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869862086678C0041E630 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,21 @@
 			remoteInfo = MenuBarApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7EA4A4E220866ABB0098C085 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7EA4A4E120866ABB0098C085 /* SwiftGit2.framework in Embed Frameworks */,
+				7EA4A4E420866ABF0098C085 /* Result.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7E1D552620228B4B00EBD74A /* MenuBarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E9869872086678C0041E630 /* SwiftGit2.framework in Frameworks */,
-				7E9869882086678C0041E630 /* Result.framework in Frameworks */,
+				7EA4A4E020866ABB0098C085 /* SwiftGit2.framework in Frameworks */,
+				7EA4A4E320866ABF0098C085 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +168,7 @@
 				7E1D552220228B4B00EBD74A /* Sources */,
 				7E1D552320228B4B00EBD74A /* Frameworks */,
 				7E1D552420228B4B00EBD74A /* Resources */,
+				7EA4A4E220866ABB0098C085 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

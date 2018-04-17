@@ -32,7 +32,7 @@ class GitCommandsViewController: NSViewController {
     }
     
     @IBAction func refreshStatus(_ sender: Any?) {
-        print(git!.status())
+        print(git!.statusDescription())
     }
     
 }
