@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MenuBarAppTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>7E1D552520228B4B00EBD74A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E1D553720228B4B00EBD74A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E1D554220228B4B00EBD74A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

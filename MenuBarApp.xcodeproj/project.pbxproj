@@ -16,10 +16,13 @@
 		7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */; };
 		7E3DF61F2084EF410006AAD8 /* GitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61E2084EF410006AAD8 /* GitHandler.swift */; };
 		7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E597E7020823DF8002E368D /* GitCommandsViewController.swift */; };
-		7EA4A4E020866ABB0098C085 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869852086678C0041E630 /* SwiftGit2.framework */; };
-		7EA4A4E120866ABB0098C085 /* SwiftGit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869852086678C0041E630 /* SwiftGit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7EA4A4E320866ABF0098C085 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869862086678C0041E630 /* Result.framework */; };
-		7EA4A4E420866ABF0098C085 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9869862086678C0041E630 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EA4A4E62086795E0098C085 /* GitHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4A4E52086795E0098C085 /* GitHandlerTests.swift */; };
+		7EBD1FCD20867C78009F307B /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBD1FCB20867C78009F307B /* SwiftGit2.framework */; };
+		7EBD1FCE20867C78009F307B /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBD1FCB20867C78009F307B /* SwiftGit2.framework */; };
+		7EBD1FCF20867C78009F307B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBD1FCC20867C78009F307B /* Result.framework */; };
+		7EBD1FD020867C78009F307B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBD1FCC20867C78009F307B /* Result.framework */; };
+		7EBD1FD520867D98009F307B /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBD1FCC20867C78009F307B /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EBD1FD620867D98009F307B /* SwiftGit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBD1FCB20867C78009F307B /* SwiftGit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +49,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7EA4A4E120866ABB0098C085 /* SwiftGit2.framework in Embed Frameworks */,
-				7EA4A4E420866ABF0098C085 /* Result.framework in Embed Frameworks */,
+				7EBD1FD520867D98009F307B /* Result.framework in Embed Frameworks */,
+				7EBD1FD620867D98009F307B /* SwiftGit2.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,8 +74,9 @@
 		7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSelectViewController.swift; sourceTree = "<group>"; };
 		7E3DF61E2084EF410006AAD8 /* GitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHandler.swift; sourceTree = "<group>"; };
 		7E597E7020823DF8002E368D /* GitCommandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitCommandsViewController.swift; sourceTree = "<group>"; };
-		7E9869852086678C0041E630 /* SwiftGit2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftGit2.framework; sourceTree = "<group>"; };
-		7E9869862086678C0041E630 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		7EA4A4E52086795E0098C085 /* GitHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHandlerTests.swift; sourceTree = "<group>"; };
+		7EBD1FCB20867C78009F307B /* SwiftGit2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftGit2.framework; sourceTree = "<group>"; };
+		7EBD1FCC20867C78009F307B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../../Library/Developer/Xcode/DerivedData/SwiftGit2-aefrlroogefgemehosckniqmsjnr/Build/Products/Debug/Result.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EA4A4E020866ABB0098C085 /* SwiftGit2.framework in Frameworks */,
-				7EA4A4E320866ABF0098C085 /* Result.framework in Frameworks */,
+				7EBD1FCD20867C78009F307B /* SwiftGit2.framework in Frameworks */,
+				7EBD1FCF20867C78009F307B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EBD1FCE20867C78009F307B /* SwiftGit2.framework in Frameworks */,
+				7EBD1FD020867C78009F307B /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +111,8 @@
 		7E1D551D20228B4B00EBD74A = {
 			isa = PBXGroup;
 			children = (
+				7EBD1FCC20867C78009F307B /* Result.framework */,
+				7EBD1FCB20867C78009F307B /* SwiftGit2.framework */,
 				7E1D552820228B4B00EBD74A /* MenuBarApp */,
 				7E1D553B20228B4B00EBD74A /* MenuBarAppTests */,
 				7E1D554620228B4B00EBD74A /* MenuBarAppUITests */,
@@ -125,8 +133,6 @@
 		7E1D552820228B4B00EBD74A /* MenuBarApp */ = {
 			isa = PBXGroup;
 			children = (
-				7E9869862086678C0041E630 /* Result.framework */,
-				7E9869852086678C0041E630 /* SwiftGit2.framework */,
 				7E1D552920228B4B00EBD74A /* AppDelegate.swift */,
 				7E597E7020823DF8002E368D /* GitCommandsViewController.swift */,
 				7E3DF61E2084EF410006AAD8 /* GitHandler.swift */,
@@ -144,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				7E1D553C20228B4B00EBD74A /* MenuBarAppTests.swift */,
+				7EA4A4E52086795E0098C085 /* GitHandlerTests.swift */,
 				7E1D553E20228B4B00EBD74A /* Info.plist */,
 			);
 			path = MenuBarAppTests;
@@ -305,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E1D553D20228B4B00EBD74A /* MenuBarAppTests.swift in Sources */,
+				7EA4A4E62086795E0098C085 /* GitHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +468,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MenuBarApp",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MenuBarApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -480,6 +489,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MenuBarApp",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MenuBarApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -497,6 +507,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q5L5446692;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MenuBarAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarAppTests;
@@ -514,6 +528,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q5L5446692;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MenuBarAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarAppTests;
