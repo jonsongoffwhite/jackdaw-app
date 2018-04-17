@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftGit2
 
 class GitHandler {
     
