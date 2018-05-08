@@ -10,14 +10,24 @@ import Foundation
 import SwiftGit2
 import Result
 
+enum GitError: Error {
+    case invalidRepoPath
+}
+
 class GitHandler {
     
     let manager = FileManager()
     
     var directory: String
+    var repo: Repository
     
-    init(for directory: String) {
+    init(for directory: String) throws {
         self.directory = directory
+        let repoRes: Result = Repository.at(URL(fileURLWithPath: directory))
+        guard let repo = repoRes.value else {
+            throw GitError.invalidRepoPath
+        }
+        self.repo = repo
     }
     
     /*
@@ -29,11 +39,11 @@ class GitHandler {
         return manager.fileExists(atPath: directory + "/.git")
     }
     
+    private func addAllChanges() {
+        
+    }
+    
     func statusDescription() -> String {
-        let repoRes: Result = Repository.at(URL(fileURLWithPath: directory))
-        guard let repo = repoRes.value else {
-            return "Error"
-        }
         
         var added = ""
         var modified = ""

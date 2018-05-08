@@ -11,7 +11,7 @@ import Cocoa
 class GitCommandsViewController: NSViewController {
     
     @IBOutlet weak var projectName: NSTextField!
-    @IBOutlet weak var abletonStatus: NSTextField?
+    @IBOutlet weak var status: NSTextField?
     @IBOutlet weak var refreshStatusButton: NSButton?
     
     var git: GitHandler?
@@ -24,15 +24,21 @@ class GitCommandsViewController: NSViewController {
         // Do view setup here.
         
         if let dir = directory {
-            git = GitHandler(for: dir)
-            projectName.stringValue = String(dir.split(separator: "/").last!)
-            projectName.stringValue += ", is Git: \(git!.isGitDirectory())"
+            do {
+                git = try GitHandler(for: dir)
+                projectName.stringValue = String(dir.split(separator: "/").last!)
+                projectName.stringValue += ", is Git: \(git!.isGitDirectory())"
+            } catch GitError.invalidRepoPath {
+                // Path supplied is not a repository
+                // Choose again
+            } catch {
+                // Other errors
+            }
         }
-        
     }
     
     @IBAction func refreshStatus(_ sender: Any?) {
-        print(git!.statusDescription())
+        self.status?.stringValue = git!.statusDescription()
     }
     
 }
