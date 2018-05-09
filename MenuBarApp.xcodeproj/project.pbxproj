@@ -237,6 +237,11 @@
 					7E1D552520228B4B00EBD74A = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					7E1D553720228B4B00EBD74A = {
 						CreatedOnToolsVersion = 9.2;

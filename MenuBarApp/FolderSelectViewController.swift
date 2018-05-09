@@ -11,6 +11,7 @@ import Cocoa
 class FolderSelectViewController: NSViewController {
     
     @IBOutlet weak var selectedDir: NSTextField?
+    var chosenDir: URL?
     
     override func viewDidLoad() {
         
@@ -28,24 +29,31 @@ class FolderSelectViewController: NSViewController {
         dialog.allowsMultipleSelection = false;
         // dialog.allowedFileTypes        = [];
         
+        
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             guard let directory = dialog.url else {
                 return
             }
             selectedDir?.stringValue = directory.path
+            self.chosenDir = directory
         } else {
             return
         }
     }
     
     @IBAction func confirm(sender: AnyObject) {
-        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "showGitCommands"), sender: sender)
+        if let _ = chosenDir {
+            performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "showGitCommands"), sender: sender)
+        } else {
+            // No directory selected
+            return
+        }
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is GitCommandsViewController {
             let vc = segue.destinationController as! GitCommandsViewController
-            vc.directory = selectedDir?.stringValue
+            vc.directory = chosenDir!
         }
     }
     

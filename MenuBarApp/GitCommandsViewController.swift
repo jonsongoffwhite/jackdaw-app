@@ -17,7 +17,7 @@ class GitCommandsViewController: NSViewController {
     var git: GitHandler?
     
     //TODO: Check it has .git subdir
-    var directory: String?
+    var directory: URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class GitCommandsViewController: NSViewController {
         if let dir = directory {
             do {
                 git = try GitHandler(for: dir)
-                projectName.stringValue = String(dir.split(separator: "/").last!)
+                projectName.stringValue = String(dir.path.split(separator: "/").last!)
                 projectName.stringValue += ", is Git: \(git!.isGitDirectory())"
             } catch GitError.invalidRepoPath {
                 // Path supplied is not a repository

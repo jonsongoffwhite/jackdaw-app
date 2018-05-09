@@ -25,15 +25,15 @@ class GitHandler {
     
     let manager = FileManager()
     
-    var directory: String
+    var directory: URL
     var repo: Repository
     var ogRepo: GTRepository
 
-    init(for directory: String) throws {
+    init(for directory: URL) throws {
         self.directory = directory
         
         // SwitfGit2 repository
-        let repoRes: Result = Repository.at(URL(fileURLWithPath: directory))
+        let repoRes: Result = Repository.at(directory)
         guard let repo = repoRes.value else {
             throw GitError.invalidRepoPath
         }
@@ -41,7 +41,7 @@ class GitHandler {
         
         // ObjectiveGit repository
         do {
-            self.ogRepo = try GTRepository(url: URL(fileURLWithPath: directory))
+            self.ogRepo = try GTRepository(url: directory)
         } catch {
             throw GitError.invalidRepoPath
         }
@@ -53,13 +53,19 @@ class GitHandler {
      ** present in all git repositories
      */
     func isGitDirectory() -> Bool {
-        return manager.fileExists(atPath: directory + "/.git")
+        return manager.fileExists(atPath: directory.path + "/.git")
     }
     
     func commitAllChanges() throws -> Commit {
         addAllChanges()
         
-        let sig = Signature(name: "Jonson Goff-White", email: "jonnygoffwhite@gmail.com")
+        let sig = Signature(
+            name: "Jonson Goff-White",
+            email: "jonnygoffwhite@gmail.com",
+            time: Date(),
+            timeZone: TimeZone.current
+        )
+        
         let result = repo.commit(message: "Commit message", signature: sig)
         if let commit = result.value {
             return commit
@@ -72,6 +78,8 @@ class GitHandler {
     }
     
     private func addAllChanges() {
+        let branch = repo.localBranch(named: "master").value!
+        let _ = repo.checkout(branch, strategy: CheckoutStrategy.AllowConflicts)
         guard let status = repo.status().value else {
             return
         }
