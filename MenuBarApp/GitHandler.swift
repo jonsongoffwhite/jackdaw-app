@@ -5,13 +5,20 @@
 //  Created by Jonson Goff-White on 16/04/2018.
 //  Copyright © 2018 Jonson Goff-White. All rights reserved.
 //
+//  WORKING DIRECTOR
+//      add
+//  INDEX
+//      commit
+//  REPOSITORY
 
 import Foundation
 import SwiftGit2
+import ObjectiveGit
 import Result
 
 enum GitError: Error {
     case invalidRepoPath
+    case unableToCommitAll
 }
 
 class GitHandler {
@@ -20,14 +27,24 @@ class GitHandler {
     
     var directory: String
     var repo: Repository
-    
+    var ogRepo: GTRepository
+
     init(for directory: String) throws {
         self.directory = directory
+        
+        // SwitfGit2 repository
         let repoRes: Result = Repository.at(URL(fileURLWithPath: directory))
         guard let repo = repoRes.value else {
             throw GitError.invalidRepoPath
         }
         self.repo = repo
+        
+        // ObjectiveGit repository
+        do {
+            self.ogRepo = try GTRepository(url: URL(fileURLWithPath: directory))
+        } catch {
+            throw GitError.invalidRepoPath
+        }
     }
     
     /*
@@ -39,8 +56,46 @@ class GitHandler {
         return manager.fileExists(atPath: directory + "/.git")
     }
     
-    private func addAllChanges() {
+    func commitAllChanges() throws -> Commit {
+        addAllChanges()
         
+        let sig = Signature(name: "Jonson Goff-White", email: "jonnygoffwhite@gmail.com")
+        let result = repo.commit(message: "Commit message", signature: sig)
+        if let commit = result.value {
+            return commit
+        } else {
+            print(result.error)
+            throw GitError.unableToCommitAll
+        }
+    
+        
+    }
+    
+    private func addAllChanges() {
+        guard let status = repo.status().value else {
+            return
+        }
+        
+        // Stage all changes
+        for file in status {
+            
+//            // Changed (hti)
+//            if let hti = file.headToIndex {
+//                //let oldFileName = hti.oldFile?.path
+//                if let newFileName = hti.newFile?.path {
+//                    let _ = repo.add(path: newFileName)
+//                    print("adding \(newFileName)")
+//                }
+//            }
+            
+            // Unstaged (itwd)
+            if let itwd = file.indexToWorkDir {
+                if let newFileName = itwd.newFile?.path {
+                    let _ = repo.add(path: newFileName)
+                    print("adding \(newFileName)")
+                }
+            }
+        }
     }
     
     func statusDescription() -> String {

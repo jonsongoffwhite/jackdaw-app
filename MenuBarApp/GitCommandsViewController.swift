@@ -38,7 +38,14 @@ class GitCommandsViewController: NSViewController {
     }
     
     @IBAction func refreshStatus(_ sender: Any?) {
-        self.status?.stringValue = git!.statusDescription()
+        do {
+            let commit = try git!.commitAllChanges()
+            self.status?.stringValue = commit.message
+        } catch GitError.unableToCommitAll {
+            self.status?.stringValue = "Unable to commit all"
+        } catch {
+            self.status?.stringValue = "Committing error"
+        }
     }
     
 }
