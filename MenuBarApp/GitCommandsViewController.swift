@@ -8,6 +8,8 @@
 
 import Cocoa
 
+let ABLETON_PATH_EXTENSION = "als"
+
 class GitCommandsViewController: NSViewController {
     
     @IBOutlet weak var projectName: NSTextField!
@@ -15,6 +17,7 @@ class GitCommandsViewController: NSViewController {
     @IBOutlet weak var refreshStatusButton: NSButton?
     
     var abletonLocation: String = "/Applications/Ableton Live 10 Suite.app"
+    var abletonProjectFiles: [URL] = []
     
     var git: GitHandler?
     
@@ -30,6 +33,19 @@ class GitCommandsViewController: NSViewController {
                 git = try GitHandler(for: dir)
                 projectName.stringValue = String(dir.path.split(separator: "/").last!)
                 projectName.stringValue += ", is Git: \(git!.isGitDirectory())"
+                
+                // Populate the abletonProjectFileNames variable
+                let manager = FileManager.default
+                do {
+                    let files: [URL] = try manager.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+                    
+                    self.abletonProjectFiles = files.filter { (url) -> Bool in
+                        return url.pathExtension == ABLETON_PATH_EXTENSION
+                    }
+                }
+            
+                
+                
             } catch GitError.invalidRepoPath {
                 // Path supplied is not a repository
                 // Choose again
@@ -78,10 +94,8 @@ class GitCommandsViewController: NSViewController {
         }
         let location = URL(fileURLWithPath: abletonLocation)
         //let launchConfig = [NSWorkspace.LaunchConfigurationKey.]
-        print(location)
-        print(directory)
         do {
-            try NSWorkspace.shared.open([directory.appendingPathComponent("15 Minute Tech House.als")], withApplicationAt: location, options: NSWorkspace.LaunchOptions.default, configuration: [:])
+            try NSWorkspace.shared.open([abletonProjectFiles[0]], withApplicationAt: location, options: NSWorkspace.LaunchOptions.default, configuration: [:])
         } catch {
             print("failed to open directory with Ableton")
             print(error)
