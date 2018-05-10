@@ -15,6 +15,7 @@ import Foundation
 import SwiftGit2
 import ObjectiveGit
 import Result
+import KeychainAccess
 
 enum GitError: Error {
     case invalidRepoPath
@@ -95,10 +96,30 @@ class GitHandler {
     
     // Push local commits to remote repo
     public func pushToRemote() {
-        if let remote = self.remote {
+        let keychain = Keychain(server: "https://github.com", protocolType: .https)
+        let username = "jonsongoffwhite"
+        var password: String?
+        
+        do {
+            password = try keychain
+                .authenticationPrompt("Authenticate with logic to allow access to GitHub credentials")
+                .get(username)
+        } catch let error {
+            // Error handling if needed...
+        }
+        
+        if let remote = self.remote, let password = password {
             // Remote is set, push
             do {
-                try ogRepo.push(ogRepo.currentBranch(), to: remote, withOptions: nil, progress: nil)
+                // make credentials
+                let creds = try GTCredential(userName: username, password: password)
+                let provider = GTCredentialProvider { (type, url, credUserName) -> GTCredential? in
+                    return creds
+                }
+                
+                let options = [GTRepositoryRemoteOptionsCredentialProvider: provider]
+                // attach to push
+                try ogRepo.push(ogRepo.currentBranch(), to: remote, withOptions: options, progress: nil)
             } catch {
                 print(error)
                 print("unable to push to repo")

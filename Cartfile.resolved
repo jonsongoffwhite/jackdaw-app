@@ -1,3 +1,4 @@
 github "SwiftGit2/SwiftGit2" "411109760460fcd35b63100231d4b478eb414cc7"
 github "antitypical/Result" "3.2.4"
+github "kishikawakatsumi/KeychainAccess" "v3.1.1"
 github "libgit2/objective-git" "0.13.0"

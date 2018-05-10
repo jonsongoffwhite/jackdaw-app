@@ -15,6 +15,8 @@
 		7E1D554820228B4B00EBD74A /* MenuBarAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D554720228B4B00EBD74A /* MenuBarAppUITests.swift */; };
 		7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */; };
 		7E3DF61F2084EF410006AAD8 /* GitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61E2084EF410006AAD8 /* GitHandler.swift */; };
+		7E4E89F020A45AAC00C26343 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4E89EF20A45AAC00C26343 /* KeychainAccess.framework */; };
+		7E4E89F120A45AAC00C26343 /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4E89EF20A45AAC00C26343 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E597E7020823DF8002E368D /* GitCommandsViewController.swift */; };
 		7E5B683520A20B0D0001CF22 /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */; };
 		7E5B683620A20B0D0001CF22 /* ObjectiveGit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -51,6 +53,7 @@
 			files = (
 				7E5B683620A20B0D0001CF22 /* ObjectiveGit.framework in Embed Frameworks */,
 				7E80F50F20A3316700ABCE04 /* SwiftGit2.framework in Embed Frameworks */,
+				7E4E89F120A45AAC00C26343 /* KeychainAccess.framework in Embed Frameworks */,
 				7E80F50D20A3316700ABCE04 /* Result.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -74,6 +77,7 @@
 		7E1D554920228B4B00EBD74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSelectViewController.swift; sourceTree = "<group>"; };
 		7E3DF61E2084EF410006AAD8 /* GitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHandler.swift; sourceTree = "<group>"; };
+		7E4E89EF20A45AAC00C26343 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/Mac/KeychainAccess.framework; sourceTree = "<group>"; };
 		7E597E7020823DF8002E368D /* GitCommandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitCommandsViewController.swift; sourceTree = "<group>"; };
 		7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveGit.framework; path = Carthage/Build/Mac/ObjectiveGit.framework; sourceTree = "<group>"; };
 		7E80F50A20A3316600ABCE04 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			files = (
 				7E5B683520A20B0D0001CF22 /* ObjectiveGit.framework in Frameworks */,
 				7E80F50E20A3316700ABCE04 /* SwiftGit2.framework in Frameworks */,
+				7E4E89F020A45AAC00C26343 /* KeychainAccess.framework in Frameworks */,
 				7E80F50C20A3316700ABCE04 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +117,7 @@
 		7E1D551D20228B4B00EBD74A = {
 			isa = PBXGroup;
 			children = (
+				7E4E89EF20A45AAC00C26343 /* KeychainAccess.framework */,
 				7E80F50A20A3316600ABCE04 /* Result.framework */,
 				7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */,
 				7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */,

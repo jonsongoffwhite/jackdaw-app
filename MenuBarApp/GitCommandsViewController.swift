@@ -61,7 +61,6 @@ class GitCommandsViewController: NSViewController {
     }
     
     @IBAction func push(_sender: Any?) {
-        
         // If remoteURL is set
         if let _ = git!.remoteURL {
             git!.pushToRemote()
