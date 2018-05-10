@@ -14,6 +14,8 @@ class GitCommandsViewController: NSViewController {
     @IBOutlet weak var status: NSTextField?
     @IBOutlet weak var refreshStatusButton: NSButton?
     
+    var abletonLocation: String = "/Applications/Ableton Live 10 Suite.app"
+    
     var git: GitHandler?
     
     //TODO: Check it has .git subdir
@@ -60,13 +62,31 @@ class GitCommandsViewController: NSViewController {
         git!.setRemote(with: repoURL)
     }
     
-    @IBAction func push(_sender: Any?) {
+    @IBAction func push(_ sender: Any?) {
         // If remoteURL is set
         if let _ = git!.remoteURL {
             git!.pushToRemote()
         } else {
             print ("not set")
         }
+    }
+    
+    @IBAction func openInAbleton(_ sender: Any?) {
+        guard let directory = directory else {
+            print("no directory set")
+            return
+        }
+        let location = URL(fileURLWithPath: abletonLocation)
+        //let launchConfig = [NSWorkspace.LaunchConfigurationKey.]
+        print(location)
+        print(directory)
+        do {
+            try NSWorkspace.shared.open([directory.appendingPathComponent("15 Minute Tech House.als")], withApplicationAt: location, options: NSWorkspace.LaunchOptions.default, configuration: [:])
+        } catch {
+            print("failed to open directory with Ableton")
+            print(error)
+        }
+        
     }
     
 }

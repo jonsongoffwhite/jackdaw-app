@@ -739,6 +739,17 @@
                                     <action selector="commitChanges:" target="XfG-lQ-9wD" id="1G4-UE-taR"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixj-T7-a19">
+                                <rect key="frame" x="328" y="218" width="138" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Open in Ableton" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WgP-Sj-t8l">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="openInAbleton:" target="XfG-lQ-9wD" id="Ihu-Xe-teN"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
