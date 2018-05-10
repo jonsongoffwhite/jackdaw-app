@@ -23,11 +23,23 @@ enum GitError: Error {
 
 class GitHandler {
     
+    // File IO
     let manager = FileManager()
     
+    // Directory URL with bookmark
     var directory: URL
+    
+    // SwiftGit2 Repo
     var repo: Repository
+    
+    // ObjectiveGit repo
     var ogRepo: GTRepository
+    
+    // Remote URL
+    private (set) var remoteURL: URL? 
+    
+    // Remote Object (OG)
+    private var remote: GTRemote?
 
     init(for directory: URL) throws {
         self.directory = directory
@@ -44,6 +56,53 @@ class GitHandler {
             self.ogRepo = try GTRepository(url: directory)
         } catch {
             throw GitError.invalidRepoPath
+        }
+        
+        // Set remote if one exists
+        let remoteNames = try? ogRepo.remoteNames()
+        if let remoteNames = remoteNames {
+            if remoteNames.count > 0 {
+                // Arbitrarily chose the first existing remote
+                let remoteName = remoteNames[0]
+                self.remoteURL = URL(string: remoteName)!
+                do {
+                    self.remote = try GTRemote(name: remoteName, in: ogRepo)
+                } catch {
+                    print("Error getting existing remote")
+                    print(error)
+                    self.remoteURL = nil
+                }
+            }
+        }
+    }
+    
+    // Set main repo remote url
+    public func setRemote(with remoteURL: URL, name: String = "origin") -> Bool {
+        self.remoteURL = remoteURL
+        let remoteName = name
+        do {
+            self.remote = try GTRemote.createRemote(withName: remoteName, urlString: remoteURL.absoluteString, in: ogRepo)
+        } catch {
+            print("Error creating remote with name: \(remoteName), at url: \(remoteURL.absoluteString)")
+            print(error)
+            
+            // Reset string
+            self.remoteURL = nil
+            return false
+        }
+        return true
+    }
+    
+    // Push local commits to remote repo
+    public func pushToRemote() {
+        if let remote = self.remote {
+            // Remote is set, push
+            do {
+                try ogRepo.push(ogRepo.currentBranch(), to: remote, withOptions: nil, progress: nil)
+            } catch {
+                print(error)
+                print("unable to push to repo")
+            }
         }
     }
     
