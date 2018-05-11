@@ -25,10 +25,10 @@ class FolderSelectViewController: NSViewController {
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
         dialog.canChooseDirectories    = true;
+        dialog.canChooseFiles          = false
         dialog.canCreateDirectories    = false;
         dialog.allowsMultipleSelection = false;
         // dialog.allowedFileTypes        = [];
-        
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             guard let directory = dialog.url else {

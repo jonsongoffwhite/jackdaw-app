@@ -104,8 +104,8 @@ class GitHandler {
             password = try keychain
                 .authenticationPrompt("Authenticate with logic to allow access to GitHub credentials")
                 .get(username)
-        } catch let error {
-            // Error handling if needed...
+        } catch {
+            print(error)
         }
         
         if let remote = self.remote, let password = password {
@@ -186,6 +186,33 @@ class GitHandler {
         }
     }
     
+    func checkout(to branch: GTBranch) {
+        let options = GTCheckoutOptions(strategy: .allowConflicts)
+        do {
+            try ogRepo.checkoutReference(branch.reference, options: options)
+        } catch {
+            print(error)
+            print("error checking out")
+        }
+    }
+    
+    func getBranches() -> [GTBranch] {
+        // just gets local branches
+        do {
+            let branches = try ogRepo.localBranches()
+            return branches
+        } catch {
+            print(error)
+            print("error getting branches")
+            return []
+        }
+    }
+    
+    func getCurrentBranch() -> String? {
+        let curr = try? self.ogRepo.currentBranch()
+        return curr?.name
+    }
+    
     func statusDescription() -> String {
         
         var added = ""
@@ -219,5 +246,4 @@ class GitHandler {
         }
         return "added: \n\n" + added + "\nmodified: \n\n" + modified
     }
-    
 }

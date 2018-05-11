@@ -7,14 +7,16 @@
 //
 
 import Cocoa
+import ObjectiveGit
 
 let ABLETON_PATH_EXTENSION = "als"
 
 class GitCommandsViewController: NSViewController {
     
     @IBOutlet weak var projectName: NSTextField!
-    @IBOutlet weak var status: NSTextField?
-    @IBOutlet weak var refreshStatusButton: NSButton?
+    @IBOutlet weak var currentBranch: NSTextField?
+    @IBOutlet weak var commitChangesButton: NSButton?
+    @IBOutlet weak var projectFileDropdown: NSPopUpButton!
     
     var abletonLocation: String = "/Applications/Ableton Live 10 Suite.app"
     var abletonProjectFiles: [URL] = []
@@ -49,20 +51,36 @@ class GitCommandsViewController: NSViewController {
             } catch GitError.invalidRepoPath {
                 // Path supplied is not a repository
                 // Choose again
+                return
             } catch {
                 // Other errors
+                return
             }
         }
+        
+        // Show branch
+        let currentBranch = git!.getCurrentBranch()
+        if let currentBranch = currentBranch {
+            self.currentBranch?.stringValue = currentBranch
+        }
+        
+        // populate projectFileDropdown
+        self.projectFileDropdown.addItems(withTitles: abletonProjectFiles.map({ (url) -> String in
+                return url.lastPathComponent
+            })
+        )
+            
+        
     }
     
     @IBAction func commitChanges(_ sender: Any?) {
         do {
             let commit = try git!.commitAllChanges()
-            self.status?.stringValue = commit.message
+            //self.status?.stringValue = commit.message
         } catch GitError.unableToCommitAll {
-            self.status?.stringValue = "Unable to commit all"
+            //self.status?.stringValue = "Unable to commit all"
         } catch {
-            self.status?.stringValue = "Committing error"
+            //self.status?.stringValue = "Committing error"
         }
     }
     
@@ -75,7 +93,7 @@ class GitCommandsViewController: NSViewController {
         alert.runModal()
         let repoURLString = input.stringValue
         let repoURL = URL(string: repoURLString)!
-        git!.setRemote(with: repoURL)
+        let _ = git!.setRemote(with: repoURL)
     }
     
     @IBAction func push(_ sender: Any?) {
@@ -87,20 +105,50 @@ class GitCommandsViewController: NSViewController {
         }
     }
     
+    @IBAction func checkoutBranch(_ sender: Any?) {
+        // segue to popover branch select
+        let branches = git!.getBranches()
+        let msvc = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "multiselect")) as! MultiSelectViewController
+        
+        msvc.delegate = self
+        var ds: [String: AnyObject]  = [:]
+        branches.forEach { (branch) in
+            ds[branch.name!] = branch
+        }
+        msvc.dataSource = ds
+        self.presentViewControllerAsSheet(msvc)
+        
+    }
+    
     @IBAction func openInAbleton(_ sender: Any?) {
-        guard let directory = directory else {
-            print("no directory set")
+        guard let project = self.projectFileDropdown.selectedItem?.title else {
+            print("no project selected")
             return
         }
-        let location = URL(fileURLWithPath: abletonLocation)
-        //let launchConfig = [NSWorkspace.LaunchConfigurationKey.]
+        let projectURL = self.abletonProjectFiles.first { (url) -> Bool in
+            url.lastPathComponent == project
+        }
         do {
-            try NSWorkspace.shared.open([abletonProjectFiles[0]], withApplicationAt: location, options: NSWorkspace.LaunchOptions.default, configuration: [:])
+            try NSWorkspace.shared.open([projectURL!], withApplicationAt: URL(fileURLWithPath: self.abletonLocation), options: NSWorkspace.LaunchOptions.default, configuration: [:])
         } catch {
-            print("failed to open directory with Ableton")
             print(error)
+            print("error opening project file")
         }
         
     }
     
+}
+
+// MARK: MultiSelectDelegate implementation
+
+extension GitCommandsViewController: MultiSelectDelegate {
+    func optionSelected(selected: AnyObject) {
+        // Only works for branch select so far
+        // make more general
+        git!.checkout(to: selected as! GTBranch)
+        
+        if let currentBranch = git!.getCurrentBranch() {
+            self.currentBranch?.stringValue = currentBranch
+        }
+    }
 }
