@@ -47,9 +47,6 @@ class GitCommandsViewController: NSViewController {
                         return url.pathExtension == ABLETON_PATH_EXTENSION
                     }
                 }
-            
-                
-                
             } catch GitError.invalidRepoPath {
                 // Path supplied is not a repository
                 // Choose again
@@ -71,6 +68,9 @@ class GitCommandsViewController: NSViewController {
                 return url.lastPathComponent
             })
         )
+        
+        // Inject merge driver
+        git!.injectMergeDriver()
             
         
     }
@@ -158,7 +158,7 @@ extension GitCommandsViewController: MultiSelectDelegate {
 extension GitCommandsViewController: CommitDelegate {
     func commit(with message: String) {
         do {
-            try git!.commitAllChanges(with: message)
+            let _ = try git!.commitAllChanges(with: message)
         } catch {
             print(error)
         }

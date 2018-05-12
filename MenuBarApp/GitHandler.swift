@@ -150,6 +150,10 @@ class GitHandler {
 
         let result = repo.commit(message: message, signature: sig)
         if let commit = result.value {
+            // Try and push the changes
+            self.pushToRemote()
+            
+            // Return commit
             return commit
         } else {
             print(result.error)
@@ -221,5 +225,79 @@ class GitHandler {
             
         }
         return "added: \n\n" + added + "\nmodified: \n\n" + modified
+    }
+    
+    func injectMergeDriver() {
+        // If .gitattributes or .git/info/attributes exists then append necessary line
+        // Check if line actually needs to be appended
+        // Append to .git/config
+        // Create hidden folder in root, store merge scripts
+        // Add to .gitignore if exists, else create and add
+        
+        var dotAttributesExists: Bool
+        var infoAttributesExists: Bool
+        var gitConfigExists: Bool
+        
+        if !isGitDirectory() {
+            return
+        }
+        
+        dotAttributesExists = manager.fileExists(atPath: directory.path + "/.attributes")
+        infoAttributesExists = manager.fileExists(atPath: directory.path + "/.git/info/attributes")
+        gitConfigExists = manager.fileExists(atPath: directory.path + "/.git/config")
+        
+        let localConfigURL = Bundle.main.url(forResource: "config", withExtension: "")!
+        let localAttributesURL = Bundle.main.url(forResource: "attributes", withExtension: "")!
+        
+        let configString = try! String(contentsOf: localConfigURL, encoding: .utf8)
+        let attributeString = try! String(contentsOf: localAttributesURL, encoding: .utf8)
+
+        var attr: URL
+        
+        // Prefer info attributes
+        if infoAttributesExists {
+            attr = directory.appendingPathComponent(".git")
+                            .appendingPathComponent("info")
+                            .appendingPathComponent("attributes")
+        } else if dotAttributesExists {
+            attr = directory.appendingPathComponent(".attributes")
+        } else {
+            attr = directory.appendingPathComponent(".git")
+                            .appendingPathComponent("info")
+                            .appendingPathComponent("attributes")
+            manager.createFile(atPath: attr.path, contents: nil, attributes: nil)
+        }
+        
+        if let fileHandle = try? FileHandle(forWritingTo: attr) {
+        
+            let attrContentsString = try! String(contentsOf: attr, encoding: .utf8)
+            
+            if attrContentsString.range(of: attributeString) == nil {
+                // attribute setup not already in file
+                fileHandle.seekToEndOfFile()
+                fileHandle.write(attributeString.data(using: .utf8)!)
+            }
+            fileHandle.closeFile()
+        }
+        
+        let config = directory.appendingPathComponent(".git")
+                              .appendingPathComponent("config")
+        
+        if !gitConfigExists {
+            manager.createFile(atPath: config.path, contents: nil, attributes: nil)
+        }
+        
+        if let fileHandle = try? FileHandle(forWritingTo: config) {
+            let configContentsString = try! String(contentsOf: config, encoding: .utf8)
+            
+            if configContentsString.range(of: configString) == nil {
+                // config setup not already in file
+                fileHandle.seekToEndOfFile()
+                fileHandle.write(configString.data(using: .utf8)!)
+            }
+            fileHandle.closeFile()
+        }
+        
+        
     }
 }
