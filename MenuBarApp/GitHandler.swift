@@ -252,6 +252,9 @@ class GitHandler {
         let configString = try! String(contentsOf: localConfigURL, encoding: .utf8)
         let attributeString = try! String(contentsOf: localAttributesURL, encoding: .utf8)
 
+        
+        // ATTRIBUTES
+        
         var attr: URL
         
         // Prefer info attributes
@@ -280,6 +283,8 @@ class GitHandler {
             fileHandle.closeFile()
         }
         
+        // CONFIG
+        
         let config = directory.appendingPathComponent(".git")
                               .appendingPathComponent("config")
         
@@ -297,6 +302,34 @@ class GitHandler {
             }
             fileHandle.closeFile()
         }
+        
+        // SCRIPTS
+        
+        let scriptsURL = directory.appendingPathComponent(".merge")
+        
+        do {
+            try manager.createDirectory(at: scriptsURL, withIntermediateDirectories: false, attributes: nil)
+        } catch {
+            // Already exists?
+            print("error creating merge scripts directory")
+            print(error)
+        }
+        
+        let bashMergeURL = scriptsURL.appendingPathComponent("merge-als.sh")
+        let pyMergeURL   = scriptsURL.appendingPathComponent("merge.py")
+        
+        if !manager.fileExists(atPath: bashMergeURL.path) {
+            let localBashMerge = Bundle.main.url(forResource: "merge-als.sh", withExtension: "")!
+            let localBashMergeData = try! Data(contentsOf: localBashMerge)
+            manager.createFile(atPath: bashMergeURL.path, contents: localBashMergeData, attributes: nil)
+        }
+        
+        if !manager.fileExists(atPath: pyMergeURL.path) {
+            let localPyMerge   = Bundle.main.url(forResource: "merge.py", withExtension: "")!
+            let localPyMergeData   = try! Data(contentsOf: localPyMerge)
+            manager.createFile(atPath: pyMergeURL.path, contents: localPyMergeData, attributes: nil)
+        }
+        
         
         
     }
