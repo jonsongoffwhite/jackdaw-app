@@ -108,6 +108,8 @@ class GitHandler {
             print(error)
         }
         
+        // TODO: check if it is correct user/pass that has been retrieved from Keychain
+        
         if let remote = self.remote, let password = password {
             // Remote is set, push
             do {
@@ -136,7 +138,7 @@ class GitHandler {
         return manager.fileExists(atPath: directory.path + "/.git")
     }
     
-    func commitAllChanges() throws -> Commit {
+    func commitAllChanges(with message: String) throws -> Commit {
         addAllChanges()
         
         let sig = Signature(
@@ -145,45 +147,19 @@ class GitHandler {
             time: Date(),
             timeZone: TimeZone.current
         )
-        
-        let result = repo.commit(message: "Commit message", signature: sig)
+
+        let result = repo.commit(message: message, signature: sig)
         if let commit = result.value {
             return commit
         } else {
             print(result.error)
             throw GitError.unableToCommitAll
         }
-    
-        
     }
     
     private func addAllChanges() {
-        let branch = repo.localBranch(named: "master").value!
-        let _ = repo.checkout(branch, strategy: CheckoutStrategy.AllowConflicts)
-        guard let status = repo.status().value else {
-            return
-        }
-        
-        // Stage all changes
-        for file in status {
-            
-//            // Changed (hti)
-//            if let hti = file.headToIndex {
-//                //let oldFileName = hti.oldFile?.path
-//                if let newFileName = hti.newFile?.path {
-//                    let _ = repo.add(path: newFileName)
-//                    print("adding \(newFileName)")
-//                }
-//            }
-            
-            // Unstaged (itwd)
-            if let itwd = file.indexToWorkDir {
-                if let newFileName = itwd.newFile?.path {
-                    let _ = repo.add(path: newFileName)
-                    print("adding \(newFileName)")
-                }
-            }
-        }
+        //print (repo.status())
+        let _ = repo.add(path: ".")
     }
     
     func checkout(to branch: GTBranch) {

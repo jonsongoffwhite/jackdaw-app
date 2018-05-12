@@ -11,6 +11,8 @@ import ObjectiveGit
 
 let ABLETON_PATH_EXTENSION = "als"
 
+// Make GitHandler the delegate for the other ViewControllers directly
+
 class GitCommandsViewController: NSViewController {
     
     @IBOutlet weak var projectName: NSTextField!
@@ -74,14 +76,12 @@ class GitCommandsViewController: NSViewController {
     }
     
     @IBAction func commitChanges(_ sender: Any?) {
-        do {
-            let commit = try git!.commitAllChanges()
-            //self.status?.stringValue = commit.message
-        } catch GitError.unableToCommitAll {
-            //self.status?.stringValue = "Unable to commit all"
-        } catch {
-            //self.status?.stringValue = "Committing error"
-        }
+        
+        let vc = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "commit")) as! CommitViewController
+        
+        vc.delegate = self
+        self.presentViewControllerAsSheet(vc)
+        
     }
     
     @IBAction func setRemote(_ sender: Any?) {
@@ -149,6 +149,18 @@ extension GitCommandsViewController: MultiSelectDelegate {
         
         if let currentBranch = git!.getCurrentBranch() {
             self.currentBranch?.stringValue = currentBranch
+        }
+    }
+}
+
+// MARK: CommitDelegate implementation
+
+extension GitCommandsViewController: CommitDelegate {
+    func commit(with message: String) {
+        do {
+            try git!.commitAllChanges(with: message)
+        } catch {
+            print(error)
         }
     }
 }

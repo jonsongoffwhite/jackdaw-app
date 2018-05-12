@@ -680,6 +680,44 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
+        <!--Commit View Controller-->
+        <scene sceneID="szq-dj-ZIS">
+            <objects>
+                <viewController storyboardIdentifier="commit" id="cCj-OF-MJN" customClass="CommitViewController" customModule="MenuBarApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ndC-0y-bll">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a32-e3-bxR">
+                                <rect key="frame" x="20" y="74" width="410" height="206"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="iR6-tf-x3K">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-vg-ev0">
+                                <rect key="frame" x="182" y="13" width="88" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Commit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eNs-Y2-fOH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="commit:" target="cCj-OF-MJN" id="P5d-ZU-m73"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="commitMessageField" destination="a32-e3-bxR" id="RMF-XA-sCj"/>
+                    </connections>
+                </viewController>
+                <customObject id="hz5-FP-DDS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="262"/>
+        </scene>
         <!--Git Commands View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -736,7 +774,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="commitChanges:" target="XfG-lQ-9wD" id="1G4-UE-taR"/>
+                                    <action selector="commitChanges:" target="XfG-lQ-9wD" id="EZ8-Q8-Sle"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixj-T7-a19">
@@ -777,7 +815,6 @@
                         <outlet property="currentBranch" destination="wsm-Fi-hBr" id="hlg-sw-6fZ"/>
                         <outlet property="projectFileDropdown" destination="Z4P-Mr-sPR" id="4jM-Qg-U8n"/>
                         <outlet property="projectName" destination="9xk-SD-dLF" id="gjh-qA-pbW"/>
-                        <segue destination="M7T-5h-ASS" kind="popover" identifier="showMultiSelect" popoverBehavior="t" preferredEdge="maxY" id="GNi-1P-2IT"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

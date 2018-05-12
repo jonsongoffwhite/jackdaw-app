@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         if let button = statusItem.button {
-            button.image = NSImage(named:NSImage.Name("menu-icon"))
+            button.image = NSImage(named:NSImage.Name("jackdaw-icon"))
             button.action = #selector(togglePopover(_:))
         }
         popover.contentViewController = FolderSelectViewController.freshController()
