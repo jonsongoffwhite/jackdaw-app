@@ -808,11 +808,32 @@
                                     <menu key="menu" id="ojr-CI-4ks"/>
                                 </popUpButtonCell>
                             </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qA-ma-Mz8">
+                                <rect key="frame" x="18" y="72" width="126" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="lDS-RZ-Jev">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="naD-wa-6Zh"/>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LOl-ZQ-Sk7">
+                                <rect key="frame" x="14" y="27" width="133" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Merge" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Cs-mU-Aga">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="merge:" target="XfG-lQ-9wD" id="Ozn-hd-Xde"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="commitChangesButton" destination="rqi-Jc-XPe" id="Eo2-c7-hP6"/>
                         <outlet property="currentBranch" destination="wsm-Fi-hBr" id="hlg-sw-6fZ"/>
+                        <outlet property="mergeBranchDropdown" destination="6qA-ma-Mz8" id="ymY-Kg-Cpp"/>
                         <outlet property="projectFileDropdown" destination="Z4P-Mr-sPR" id="4jM-Qg-U8n"/>
                         <outlet property="projectName" destination="9xk-SD-dLF" id="gjh-qA-pbW"/>
                     </connections>

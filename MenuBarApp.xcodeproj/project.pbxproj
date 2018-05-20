@@ -23,6 +23,9 @@
 		7E4E89FA20A730F100C26343 /* merge.py in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E89F820A730F100C26343 /* merge.py */; };
 		7E4E89FE20A731EF00C26343 /* config in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E89FD20A731EF00C26343 /* config */; };
 		7E4E8A0020A7320700C26343 /* attributes in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E89FF20A7320700C26343 /* attributes */; };
+		7E4E8A4120AB3C6C00C26343 /* git in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E8A4020AB3C6B00C26343 /* git */; };
+		7E4E8A4F20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E8A4E20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h */; };
+		7E4E8A5120ADCBB800C26343 /* MergeDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E8A5020ADCBB800C26343 /* MergeDriver.m */; };
 		7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E597E7020823DF8002E368D /* GitCommandsViewController.swift */; };
 		7E5B683520A20B0D0001CF22 /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */; };
 		7E5B683620A20B0D0001CF22 /* ObjectiveGit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -31,6 +34,7 @@
 		7E80F50E20A3316700ABCE04 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; };
 		7E80F50F20A3316700ABCE04 /* SwiftGit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7EA4A4E62086795E0098C085 /* GitHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4A4E52086795E0098C085 /* GitHandlerTests.swift */; };
+		7EF6AE3520ADCEA4007D4055 /* MergeDriver.h in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6AE3420ADCEA4007D4055 /* MergeDriver.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,11 +94,15 @@
 		7E4E89F820A730F100C26343 /* merge.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = merge.py; sourceTree = "<group>"; };
 		7E4E89FD20A731EF00C26343 /* config */ = {isa = PBXFileReference; lastKnownFileType = text; path = config; sourceTree = "<group>"; };
 		7E4E89FF20A7320700C26343 /* attributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = attributes; sourceTree = "<group>"; };
+		7E4E8A4020AB3C6B00C26343 /* git */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = git; sourceTree = "<group>"; };
+		7E4E8A4E20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jackdaw-App-Bridging-Header.h"; sourceTree = "<group>"; };
+		7E4E8A5020ADCBB800C26343 /* MergeDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MergeDriver.m; sourceTree = "<group>"; };
 		7E597E7020823DF8002E368D /* GitCommandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitCommandsViewController.swift; sourceTree = "<group>"; };
 		7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveGit.framework; path = Carthage/Build/Mac/ObjectiveGit.framework; sourceTree = "<group>"; };
 		7E80F50A20A3316600ABCE04 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGit2.framework; path = Carthage/Build/Mac/SwiftGit2.framework; sourceTree = "<group>"; };
 		7EA4A4E52086795E0098C085 /* GitHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHandlerTests.swift; sourceTree = "<group>"; };
+		7EF6AE3420ADCEA4007D4055 /* MergeDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MergeDriver.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,7 @@
 				7E1D553B20228B4B00EBD74A /* MenuBarAppTests */,
 				7E1D554620228B4B00EBD74A /* MenuBarAppUITests */,
 				7E1D552720228B4B00EBD74A /* Products */,
+				7E4E8A4620AD93FA00C26343 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +162,10 @@
 		7E1D552820228B4B00EBD74A /* MenuBarApp */ = {
 			isa = PBXGroup;
 			children = (
+				7E4E8A5020ADCBB800C26343 /* MergeDriver.m */,
+				7EF6AE3420ADCEA4007D4055 /* MergeDriver.h */,
+				7E4E8A4E20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h */,
+				7E4E8A4020AB3C6B00C26343 /* git */,
 				7E1D552920228B4B00EBD74A /* AppDelegate.swift */,
 				7E597E7020823DF8002E368D /* GitCommandsViewController.swift */,
 				7E3DF61E2084EF410006AAD8 /* GitHandler.swift */,
@@ -197,6 +210,13 @@
 				7E4E89FF20A7320700C26343 /* attributes */,
 			);
 			path = Driver;
+			sourceTree = "<group>";
+		};
+		7E4E8A4620AD93FA00C26343 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,10 +288,11 @@
 				TargetAttributes = {
 					7E1D552520228B4B00EBD74A = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -312,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E4E8A4120AB3C6C00C26343 /* git in Resources */,
 				7E4E89FE20A731EF00C26343 /* config in Resources */,
 				7E1D552E20228B4B00EBD74A /* Assets.xcassets in Resources */,
 				7E4E89F920A730F100C26343 /* merge-als.sh in Resources */,
@@ -344,9 +366,12 @@
 			files = (
 				7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */,
 				7E4E89F520A6149100C26343 /* CommitViewController.swift in Sources */,
+				7EF6AE3520ADCEA4007D4055 /* MergeDriver.h in Sources */,
 				7E3DF61F2084EF410006AAD8 /* GitHandler.swift in Sources */,
+				7E4E8A5120ADCBB800C26343 /* MergeDriver.m in Sources */,
 				7E1D552C20228B4B00EBD74A /* ViewController.swift in Sources */,
 				7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */,
+				7E4E8A4F20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h in Sources */,
 				7E4E89F320A4BDD800C26343 /* MultiSelectViewController.swift in Sources */,
 				7E1D552A20228B4B00EBD74A /* AppDelegate.swift in Sources */,
 			);
@@ -447,8 +472,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -497,7 +524,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
@@ -506,7 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MenuBarApp/MenuBarApp.entitlements;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q5L5446692;
@@ -518,8 +548,16 @@
 				);
 				INFOPLIST_FILE = MenuBarApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MenuBarApp",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT)/Jackdaw-App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -528,7 +566,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MenuBarApp/MenuBarApp.entitlements;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q5L5446692;
@@ -540,8 +578,15 @@
 				);
 				INFOPLIST_FILE = MenuBarApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MenuBarApp",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT)/Jackdaw-App-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

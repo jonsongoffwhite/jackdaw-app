@@ -19,11 +19,12 @@ class GitCommandsViewController: NSViewController {
     @IBOutlet weak var currentBranch: NSTextField?
     @IBOutlet weak var commitChangesButton: NSButton?
     @IBOutlet weak var projectFileDropdown: NSPopUpButton!
+    @IBOutlet weak var mergeBranchDropdown: NSPopUpButton!
     
     var abletonLocation: String = "/Applications/Ableton Live 10 Suite.app"
     var abletonProjectFiles: [URL] = []
     
-    var git: GitHandler?
+    var git: GitHandler!
     
     //TODO: Check it has .git subdir
     var directory: URL?
@@ -36,7 +37,7 @@ class GitCommandsViewController: NSViewController {
             do {
                 git = try GitHandler(for: dir)
                 projectName.stringValue = String(dir.path.split(separator: "/").last!)
-                projectName.stringValue += ", is Git: \(git!.isGitDirectory())"
+                projectName.stringValue += ", is Git: \(git.isGitDirectory())"
                 
                 // Populate the abletonProjectFileNames variable
                 let manager = FileManager.default
@@ -58,7 +59,7 @@ class GitCommandsViewController: NSViewController {
         }
         
         // Show branch
-        let currentBranch = git!.getCurrentBranch()
+        let currentBranch = git.getCurrentBranch()
         if let currentBranch = currentBranch {
             self.currentBranch?.stringValue = currentBranch
         }
@@ -69,8 +70,21 @@ class GitCommandsViewController: NSViewController {
             })
         )
         
+        // populate mergeBranchDropDown
+        let menu = NSMenu(title: "mergeBranchesMenu")
+        git.getBranches().forEach { (branch) in
+            let name = branch.name != nil ? branch.name! : "unnamed branch"
+            let item = NSMenuItem(title: name, action: nil, keyEquivalent: "")
+            item.representedObject = branch
+            menu.addItem(item)
+        }
+        mergeBranchDropdown.menu = menu
+        
         // Inject merge driver
-        git!.injectMergeDriver()
+        git.injectMergeDriver()
+        
+        // Register merge driver
+        //init_als_merge_driver()
             
         
     }
@@ -93,13 +107,13 @@ class GitCommandsViewController: NSViewController {
         alert.runModal()
         let repoURLString = input.stringValue
         let repoURL = URL(string: repoURLString)!
-        let _ = git!.setRemote(with: repoURL)
+        let _ = git.setRemote(with: repoURL)
     }
     
     @IBAction func push(_ sender: Any?) {
         // If remoteURL is set
-        if let _ = git!.remoteURL {
-            git!.pushToRemote()
+        if let _ = git.remoteURL {
+            git.pushToRemote()
         } else {
             print ("not set")
         }
@@ -107,7 +121,7 @@ class GitCommandsViewController: NSViewController {
     
     @IBAction func checkoutBranch(_ sender: Any?) {
         // segue to popover branch select
-        let branches = git!.getBranches()
+        let branches = git.getBranches()
         let msvc = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "multiselect")) as! MultiSelectViewController
         
         msvc.delegate = self
@@ -118,6 +132,22 @@ class GitCommandsViewController: NSViewController {
         msvc.dataSource = ds
         self.presentViewControllerAsSheet(msvc)
         
+    }
+    
+    @IBAction func merge(_ sender: Any?) {
+        let branch = mergeBranchDropdown.selectedItem?.representedObject! as! GTBranch
+        do {
+            try git.merge(with: branch)
+        } catch GitError.mergeFailure {
+            // present alert that merge failed
+            let alert = NSAlert()
+            alert.messageText = "Merge failed"
+            alert.runModal()
+            return
+        } catch {
+            // Other error
+            return
+        }
     }
     
     @IBAction func openInAbleton(_ sender: Any?) {
@@ -145,9 +175,9 @@ extension GitCommandsViewController: MultiSelectDelegate {
     func optionSelected(selected: AnyObject) {
         // Only works for branch select so far
         // make more general
-        git!.checkout(to: selected as! GTBranch)
+        git.checkout(to: selected as! GTBranch)
         
-        if let currentBranch = git!.getCurrentBranch() {
+        if let currentBranch = git.getCurrentBranch() {
             self.currentBranch?.stringValue = currentBranch
         }
     }
@@ -158,7 +188,7 @@ extension GitCommandsViewController: MultiSelectDelegate {
 extension GitCommandsViewController: CommitDelegate {
     func commit(with message: String) {
         do {
-            let _ = try git!.commitAllChanges(with: message)
+            let _ = try git.commitAllChanges(with: message)
         } catch {
             print(error)
         }
