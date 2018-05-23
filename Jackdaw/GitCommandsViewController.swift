@@ -1,6 +1,6 @@
 //
 //  GitCommandsViewController.swift
-//  MenuBarApp
+//  Jackdaw
 //
 //  Created by Jonson Goff-White on 14/04/2018.
 //  Copyright © 2018 Jonson Goff-White. All rights reserved.

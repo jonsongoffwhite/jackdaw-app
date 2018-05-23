@@ -1,15 +1,15 @@
 //
-//  MenuBarAppTests.swift
-//  MenuBarAppTests
+//  JackdawTests.swift
+//  JackdawTests
 //
 //  Created by Jonson Goff-White on 31/01/2018.
 //  Copyright © 2018 Jonson Goff-White. All rights reserved.
 //
 
 import XCTest
-@testable import MenuBarApp
+@testable import Jackdaw
 
-class MenuBarAppTests: XCTestCase {
+class JackdawTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

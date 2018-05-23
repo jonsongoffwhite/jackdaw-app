@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MenuBarApp
+//  Jackdaw
 //
 //  Created by Jonson Goff-White on 31/01/2018.
 //  Copyright © 2018 Jonson Goff-White. All rights reserved.

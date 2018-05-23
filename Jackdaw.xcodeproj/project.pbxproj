@@ -11,8 +11,8 @@
 		7E1D552C20228B4B00EBD74A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D552B20228B4B00EBD74A /* ViewController.swift */; };
 		7E1D552E20228B4B00EBD74A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D552D20228B4B00EBD74A /* Assets.xcassets */; };
 		7E1D553120228B4B00EBD74A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D552F20228B4B00EBD74A /* Main.storyboard */; };
-		7E1D553D20228B4B00EBD74A /* MenuBarAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D553C20228B4B00EBD74A /* MenuBarAppTests.swift */; };
-		7E1D554820228B4B00EBD74A /* MenuBarAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D554720228B4B00EBD74A /* MenuBarAppUITests.swift */; };
+		7E1D553D20228B4B00EBD74A /* JackdawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D553C20228B4B00EBD74A /* JackdawTests.swift */; };
+		7E1D554820228B4B00EBD74A /* JackdawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D554720228B4B00EBD74A /* JackdawUITests.swift */; };
 		7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */; };
 		7E3DF61F2084EF410006AAD8 /* GitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61E2084EF410006AAD8 /* GitHandler.swift */; };
 		7E4E89F020A45AAC00C26343 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4E89EF20A45AAC00C26343 /* KeychainAccess.framework */; };
@@ -43,14 +43,14 @@
 			containerPortal = 7E1D551E20228B4B00EBD74A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7E1D552520228B4B00EBD74A;
-			remoteInfo = MenuBarApp;
+			remoteInfo = Jackdaw;
 		};
 		7E1D554420228B4B00EBD74A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7E1D551E20228B4B00EBD74A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7E1D552520228B4B00EBD74A;
-			remoteInfo = MenuBarApp;
+			remoteInfo = Jackdaw;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -72,18 +72,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7E1D552620228B4B00EBD74A /* MenuBarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1D552620228B4B00EBD74A /* Jackdaw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jackdaw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1D552920228B4B00EBD74A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E1D552B20228B4B00EBD74A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7E1D552D20228B4B00EBD74A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E1D553020228B4B00EBD74A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E1D553220228B4B00EBD74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E1D553320228B4B00EBD74A /* MenuBarApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBarApp.entitlements; sourceTree = "<group>"; };
-		7E1D553820228B4B00EBD74A /* MenuBarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuBarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E1D553C20228B4B00EBD74A /* MenuBarAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarAppTests.swift; sourceTree = "<group>"; };
+		7E1D553320228B4B00EBD74A /* Jackdaw.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jackdaw.entitlements; sourceTree = "<group>"; };
+		7E1D553820228B4B00EBD74A /* JackdawTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JackdawTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1D553C20228B4B00EBD74A /* JackdawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackdawTests.swift; sourceTree = "<group>"; };
 		7E1D553E20228B4B00EBD74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E1D554320228B4B00EBD74A /* MenuBarAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenuBarAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E1D554720228B4B00EBD74A /* MenuBarAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarAppUITests.swift; sourceTree = "<group>"; };
+		7E1D554320228B4B00EBD74A /* JackdawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JackdawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1D554720228B4B00EBD74A /* JackdawUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackdawUITests.swift; sourceTree = "<group>"; };
 		7E1D554920228B4B00EBD74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSelectViewController.swift; sourceTree = "<group>"; };
 		7E3DF61E2084EF410006AAD8 /* GitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHandler.swift; sourceTree = "<group>"; };
@@ -141,9 +141,9 @@
 				7E80F50A20A3316600ABCE04 /* Result.framework */,
 				7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */,
 				7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */,
-				7E1D552820228B4B00EBD74A /* MenuBarApp */,
-				7E1D553B20228B4B00EBD74A /* MenuBarAppTests */,
-				7E1D554620228B4B00EBD74A /* MenuBarAppUITests */,
+				7E1D552820228B4B00EBD74A /* Jackdaw */,
+				7E1D553B20228B4B00EBD74A /* JackdawTests */,
+				7E1D554620228B4B00EBD74A /* JackdawUITests */,
 				7E1D552720228B4B00EBD74A /* Products */,
 				7E4E8A4620AD93FA00C26343 /* Frameworks */,
 			);
@@ -152,14 +152,14 @@
 		7E1D552720228B4B00EBD74A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7E1D552620228B4B00EBD74A /* MenuBarApp.app */,
-				7E1D553820228B4B00EBD74A /* MenuBarAppTests.xctest */,
-				7E1D554320228B4B00EBD74A /* MenuBarAppUITests.xctest */,
+				7E1D552620228B4B00EBD74A /* Jackdaw.app */,
+				7E1D553820228B4B00EBD74A /* JackdawTests.xctest */,
+				7E1D554320228B4B00EBD74A /* JackdawUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7E1D552820228B4B00EBD74A /* MenuBarApp */ = {
+		7E1D552820228B4B00EBD74A /* Jackdaw */ = {
 			isa = PBXGroup;
 			children = (
 				7E4E8A5020ADCBB800C26343 /* MergeDriver.m */,
@@ -177,28 +177,28 @@
 				7E4E89F420A6149100C26343 /* CommitViewController.swift */,
 				7E4E89F220A4BDD800C26343 /* MultiSelectViewController.swift */,
 				7E1D553220228B4B00EBD74A /* Info.plist */,
-				7E1D553320228B4B00EBD74A /* MenuBarApp.entitlements */,
+				7E1D553320228B4B00EBD74A /* Jackdaw.entitlements */,
 			);
-			path = MenuBarApp;
+			path = Jackdaw;
 			sourceTree = "<group>";
 		};
-		7E1D553B20228B4B00EBD74A /* MenuBarAppTests */ = {
+		7E1D553B20228B4B00EBD74A /* JackdawTests */ = {
 			isa = PBXGroup;
 			children = (
-				7E1D553C20228B4B00EBD74A /* MenuBarAppTests.swift */,
+				7E1D553C20228B4B00EBD74A /* JackdawTests.swift */,
 				7EA4A4E52086795E0098C085 /* GitHandlerTests.swift */,
 				7E1D553E20228B4B00EBD74A /* Info.plist */,
 			);
-			path = MenuBarAppTests;
+			path = JackdawTests;
 			sourceTree = "<group>";
 		};
-		7E1D554620228B4B00EBD74A /* MenuBarAppUITests */ = {
+		7E1D554620228B4B00EBD74A /* JackdawUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7E1D554720228B4B00EBD74A /* MenuBarAppUITests.swift */,
+				7E1D554720228B4B00EBD74A /* JackdawUITests.swift */,
 				7E1D554920228B4B00EBD74A /* Info.plist */,
 			);
-			path = MenuBarAppUITests;
+			path = JackdawUITests;
 			sourceTree = "<group>";
 		};
 		7E4E89F620A730C900C26343 /* Driver */ = {
@@ -222,9 +222,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7E1D552520228B4B00EBD74A /* MenuBarApp */ = {
+		7E1D552520228B4B00EBD74A /* Jackdaw */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E1D554C20228B4B00EBD74A /* Build configuration list for PBXNativeTarget "MenuBarApp" */;
+			buildConfigurationList = 7E1D554C20228B4B00EBD74A /* Build configuration list for PBXNativeTarget "Jackdaw" */;
 			buildPhases = (
 				7E1D552220228B4B00EBD74A /* Sources */,
 				7E1D552320228B4B00EBD74A /* Frameworks */,
@@ -235,14 +235,14 @@
 			);
 			dependencies = (
 			);
-			name = MenuBarApp;
-			productName = MenuBarApp;
-			productReference = 7E1D552620228B4B00EBD74A /* MenuBarApp.app */;
+			name = Jackdaw;
+			productName = Jackdaw;
+			productReference = 7E1D552620228B4B00EBD74A /* Jackdaw.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7E1D553720228B4B00EBD74A /* MenuBarAppTests */ = {
+		7E1D553720228B4B00EBD74A /* JackdawTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E1D554F20228B4B00EBD74A /* Build configuration list for PBXNativeTarget "MenuBarAppTests" */;
+			buildConfigurationList = 7E1D554F20228B4B00EBD74A /* Build configuration list for PBXNativeTarget "JackdawTests" */;
 			buildPhases = (
 				7E1D553420228B4B00EBD74A /* Sources */,
 				7E1D553520228B4B00EBD74A /* Frameworks */,
@@ -253,14 +253,14 @@
 			dependencies = (
 				7E1D553A20228B4B00EBD74A /* PBXTargetDependency */,
 			);
-			name = MenuBarAppTests;
-			productName = MenuBarAppTests;
-			productReference = 7E1D553820228B4B00EBD74A /* MenuBarAppTests.xctest */;
+			name = JackdawTests;
+			productName = JackdawTests;
+			productReference = 7E1D553820228B4B00EBD74A /* JackdawTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7E1D554220228B4B00EBD74A /* MenuBarAppUITests */ = {
+		7E1D554220228B4B00EBD74A /* JackdawUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E1D555220228B4B00EBD74A /* Build configuration list for PBXNativeTarget "MenuBarAppUITests" */;
+			buildConfigurationList = 7E1D555220228B4B00EBD74A /* Build configuration list for PBXNativeTarget "JackdawUITests" */;
 			buildPhases = (
 				7E1D553F20228B4B00EBD74A /* Sources */,
 				7E1D554020228B4B00EBD74A /* Frameworks */,
@@ -271,9 +271,9 @@
 			dependencies = (
 				7E1D554520228B4B00EBD74A /* PBXTargetDependency */,
 			);
-			name = MenuBarAppUITests;
-			productName = MenuBarAppUITests;
-			productReference = 7E1D554320228B4B00EBD74A /* MenuBarAppUITests.xctest */;
+			name = JackdawUITests;
+			productName = JackdawUITests;
+			productReference = 7E1D554320228B4B00EBD74A /* JackdawUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -308,7 +308,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7E1D552120228B4B00EBD74A /* Build configuration list for PBXProject "MenuBarApp" */;
+			buildConfigurationList = 7E1D552120228B4B00EBD74A /* Build configuration list for PBXProject "Jackdaw" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -321,9 +321,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7E1D552520228B4B00EBD74A /* MenuBarApp */,
-				7E1D553720228B4B00EBD74A /* MenuBarAppTests */,
-				7E1D554220228B4B00EBD74A /* MenuBarAppUITests */,
+				7E1D552520228B4B00EBD74A /* Jackdaw */,
+				7E1D553720228B4B00EBD74A /* JackdawTests */,
+				7E1D554220228B4B00EBD74A /* JackdawUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,7 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E1D553D20228B4B00EBD74A /* MenuBarAppTests.swift in Sources */,
+				7E1D553D20228B4B00EBD74A /* JackdawTests.swift in Sources */,
 				7EA4A4E62086795E0098C085 /* GitHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,7 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E1D554820228B4B00EBD74A /* MenuBarAppUITests.swift in Sources */,
+				7E1D554820228B4B00EBD74A /* JackdawUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,12 +399,12 @@
 /* Begin PBXTargetDependency section */
 		7E1D553A20228B4B00EBD74A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7E1D552520228B4B00EBD74A /* MenuBarApp */;
+			target = 7E1D552520228B4B00EBD74A /* Jackdaw */;
 			targetProxy = 7E1D553920228B4B00EBD74A /* PBXContainerItemProxy */;
 		};
 		7E1D554520228B4B00EBD74A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7E1D552520228B4B00EBD74A /* MenuBarApp */;
+			target = 7E1D552520228B4B00EBD74A /* Jackdaw */;
 			targetProxy = 7E1D554420228B4B00EBD74A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -542,18 +542,18 @@
 				DEVELOPMENT_TEAM = Q5L5446692;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/MenuBarApp",
+					"$(PROJECT_DIR)/Jackdaw",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = MenuBarApp/Info.plist;
+				INFOPLIST_FILE = Jackdaw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/MenuBarApp",
+					"$(PROJECT_DIR)/Jackdaw",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarApp;
+				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.Jackdaw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT)/Jackdaw-App-Bridging-Header.h";
@@ -572,18 +572,18 @@
 				DEVELOPMENT_TEAM = Q5L5446692;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/MenuBarApp",
+					"$(PROJECT_DIR)/Jackdaw",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = MenuBarApp/Info.plist;
+				INFOPLIST_FILE = Jackdaw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/MenuBarApp",
+					"$(PROJECT_DIR)/Jackdaw",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarApp;
+				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.Jackdaw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT)/Jackdaw-App-Bridging-Header.h";
@@ -603,12 +603,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = MenuBarAppTests/Info.plist;
+				INFOPLIST_FILE = JackdawTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.JackdawTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenuBarApp.app/Contents/MacOS/MenuBarApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jackdaw.app/Contents/MacOS/Jackdaw";
 			};
 			name = Debug;
 		};
@@ -624,12 +624,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = MenuBarAppTests/Info.plist;
+				INFOPLIST_FILE = JackdawTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.JackdawTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MenuBarApp.app/Contents/MacOS/MenuBarApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jackdaw.app/Contents/MacOS/Jackdaw";
 			};
 			name = Release;
 		};
@@ -640,12 +640,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q5L5446692;
-				INFOPLIST_FILE = MenuBarAppUITests/Info.plist;
+				INFOPLIST_FILE = JackdawUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.JackdawUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = MenuBarApp;
+				TEST_TARGET_NAME = Jackdaw;
 			};
 			name = Debug;
 		};
@@ -656,19 +656,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q5L5446692;
-				INFOPLIST_FILE = MenuBarAppUITests/Info.plist;
+				INFOPLIST_FILE = JackdawUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.MenuBarAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = whiteSpace.JackdawUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = MenuBarApp;
+				TEST_TARGET_NAME = Jackdaw;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7E1D552120228B4B00EBD74A /* Build configuration list for PBXProject "MenuBarApp" */ = {
+		7E1D552120228B4B00EBD74A /* Build configuration list for PBXProject "Jackdaw" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E1D554A20228B4B00EBD74A /* Debug */,
@@ -677,7 +677,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E1D554C20228B4B00EBD74A /* Build configuration list for PBXNativeTarget "MenuBarApp" */ = {
+		7E1D554C20228B4B00EBD74A /* Build configuration list for PBXNativeTarget "Jackdaw" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E1D554D20228B4B00EBD74A /* Debug */,
@@ -686,7 +686,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E1D554F20228B4B00EBD74A /* Build configuration list for PBXNativeTarget "MenuBarAppTests" */ = {
+		7E1D554F20228B4B00EBD74A /* Build configuration list for PBXNativeTarget "JackdawTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E1D555020228B4B00EBD74A /* Debug */,
@@ -695,7 +695,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E1D555220228B4B00EBD74A /* Build configuration list for PBXNativeTarget "MenuBarAppUITests" */ = {
+		7E1D555220228B4B00EBD74A /* Build configuration list for PBXNativeTarget "JackdawUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7E1D555320228B4B00EBD74A /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  CommitViewController.swift
-//  MenuBarApp
+//  Jackdaw
 //
 //  Created by Jonson Goff-White on 11/05/2018.
 //  Copyright © 2018 Jonson Goff-White. All rights reserved.

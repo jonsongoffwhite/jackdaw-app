@@ -1,6 +1,6 @@
 //
 //  GitHandlerTests.swift
-//  MenuBarAppTests
+//  JackdawTests
 //
 //  Created by Jonson Goff-White on 17/04/2018.
 //  Copyright © 2018 Jonson Goff-White. All rights reserved.
