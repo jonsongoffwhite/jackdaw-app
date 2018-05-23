@@ -22,6 +22,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(togglePopover(_:))
         }
         popover.contentViewController = FolderSelectViewController.freshController()
+        
+        NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(self.handleGetURL(event:reply:)), forEventClass: UInt32(kInternetEventClass), andEventID: UInt32(kAEGetURL) )
+    }
+    
+    @objc func handleGetURL(event: NSAppleEventDescriptor, reply:NSAppleEventDescriptor) {
+        if let urlString = event.paramDescriptor(forKeyword: keyDirectObject)?.stringValue {
+            print("got urlString \(urlString)")
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -45,6 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func closePopover(sender: Any?) {
         popover.performClose(sender)
     }
+
+    
 
 }
 
