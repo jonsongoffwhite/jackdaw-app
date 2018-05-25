@@ -8,6 +8,8 @@
 
 import Cocoa
 
+let JACKDAW_DOMAIN = "jackdaw"
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -29,6 +31,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func handleGetURL(event: NSAppleEventDescriptor, reply:NSAppleEventDescriptor) {
         if let urlString = event.paramDescriptor(forKeyword: keyDirectObject)?.stringValue {
             print("got urlString \(urlString)")
+            let comps = urlString.components(separatedBy: "://")
+            let domain = comps[0]
+            var message: String
+            if comps.count > 1 {
+                message = comps[1]
+            } else {
+                message = ""
+            }
+            
+            if domain == JACKDAW_DOMAIN {
+                let handler = URLSchemeHandler(message: message)
+            }
+            
         }
     }
 

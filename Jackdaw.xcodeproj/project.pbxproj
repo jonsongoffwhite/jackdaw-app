@@ -13,6 +13,7 @@
 		7E1D553120228B4B00EBD74A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D552F20228B4B00EBD74A /* Main.storyboard */; };
 		7E1D553D20228B4B00EBD74A /* JackdawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D553C20228B4B00EBD74A /* JackdawTests.swift */; };
 		7E1D554820228B4B00EBD74A /* JackdawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D554720228B4B00EBD74A /* JackdawUITests.swift */; };
+		7E2149D420B5D69E0097442A /* URLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2149D320B5D69E0097442A /* URLSchemeHandler.swift */; };
 		7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */; };
 		7E3DF61F2084EF410006AAD8 /* GitHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF61E2084EF410006AAD8 /* GitHandler.swift */; };
 		7E4E89F020A45AAC00C26343 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4E89EF20A45AAC00C26343 /* KeychainAccess.framework */; };
@@ -85,6 +86,7 @@
 		7E1D554320228B4B00EBD74A /* JackdawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JackdawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1D554720228B4B00EBD74A /* JackdawUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackdawUITests.swift; sourceTree = "<group>"; };
 		7E1D554920228B4B00EBD74A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E2149D320B5D69E0097442A /* URLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHandler.swift; sourceTree = "<group>"; };
 		7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderSelectViewController.swift; sourceTree = "<group>"; };
 		7E3DF61E2084EF410006AAD8 /* GitHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHandler.swift; sourceTree = "<group>"; };
 		7E4E89EF20A45AAC00C26343 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/Mac/KeychainAccess.framework; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				7E4E8A4E20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h */,
 				7E4E8A4020AB3C6B00C26343 /* git */,
 				7E1D552920228B4B00EBD74A /* AppDelegate.swift */,
+				7E2149D320B5D69E0097442A /* URLSchemeHandler.swift */,
 				7E597E7020823DF8002E368D /* GitCommandsViewController.swift */,
 				7E3DF61E2084EF410006AAD8 /* GitHandler.swift */,
 				7E4E89F620A730C900C26343 /* Driver */,
@@ -368,6 +371,7 @@
 				7E4E89F520A6149100C26343 /* CommitViewController.swift in Sources */,
 				7EF6AE3520ADCEA4007D4055 /* MergeDriver.h in Sources */,
 				7E3DF61F2084EF410006AAD8 /* GitHandler.swift in Sources */,
+				7E2149D420B5D69E0097442A /* URLSchemeHandler.swift in Sources */,
 				7E4E8A5120ADCBB800C26343 /* MergeDriver.m in Sources */,
 				7E1D552C20228B4B00EBD74A /* ViewController.swift in Sources */,
 				7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */,
