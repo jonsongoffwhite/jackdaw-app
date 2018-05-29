@@ -1,0 +1,6 @@
+[submodule "als-merge-driver"]
+	path = als-merge-driver
+	url = https://github.com/jonsongoffwhite/als-merge-driver
+[submodule "Jackdaw/als-merge-driver"]
+	path = Jackdaw/als-merge-driver
+	url = https://github.com/jonsongoffwhite/als-merge-driver
