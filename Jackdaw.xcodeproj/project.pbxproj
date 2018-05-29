@@ -34,7 +34,9 @@
 		7E80F50D20A3316700ABCE04 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50A20A3316600ABCE04 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E80F50E20A3316700ABCE04 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; };
 		7E80F50F20A3316700ABCE04 /* SwiftGit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E8EB60520BDD3B1003FE861 /* als-merge-driver in Resources */ = {isa = PBXBuildFile; fileRef = 7E8EB60420BDD3B0003FE861 /* als-merge-driver */; };
 		7EA4A4E62086795E0098C085 /* GitHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA4A4E52086795E0098C085 /* GitHandlerTests.swift */; };
+		7EE86C9D20B81D94001E28BA /* PullRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE86C9C20B81D94001E28BA /* PullRequestViewController.swift */; };
 		7EF6AE3520ADCEA4007D4055 /* MergeDriver.h in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6AE3420ADCEA4007D4055 /* MergeDriver.h */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +105,9 @@
 		7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveGit.framework; path = Carthage/Build/Mac/ObjectiveGit.framework; sourceTree = "<group>"; };
 		7E80F50A20A3316600ABCE04 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGit2.framework; path = Carthage/Build/Mac/SwiftGit2.framework; sourceTree = "<group>"; };
+		7E8EB60420BDD3B0003FE861 /* als-merge-driver */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "als-merge-driver"; sourceTree = "<group>"; };
 		7EA4A4E52086795E0098C085 /* GitHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHandlerTests.swift; sourceTree = "<group>"; };
+		7EE86C9C20B81D94001E28BA /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
 		7EF6AE3420ADCEA4007D4055 /* MergeDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MergeDriver.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,9 +173,11 @@
 				7E4E8A4E20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h */,
 				7E4E8A4020AB3C6B00C26343 /* git */,
 				7E1D552920228B4B00EBD74A /* AppDelegate.swift */,
+				7EE86C9C20B81D94001E28BA /* PullRequestViewController.swift */,
 				7E2149D320B5D69E0097442A /* URLSchemeHandler.swift */,
 				7E597E7020823DF8002E368D /* GitCommandsViewController.swift */,
 				7E3DF61E2084EF410006AAD8 /* GitHandler.swift */,
+				7E8EB60420BDD3B0003FE861 /* als-merge-driver */,
 				7E4E89F620A730C900C26343 /* Driver */,
 				7E3DF61C2084BD880006AAD8 /* FolderSelectViewController.swift */,
 				7E1D552B20228B4B00EBD74A /* ViewController.swift */,
@@ -342,6 +348,7 @@
 				7E4E89F920A730F100C26343 /* merge-als.sh in Resources */,
 				7E4E8A0020A7320700C26343 /* attributes in Resources */,
 				7E1D553120228B4B00EBD74A /* Main.storyboard in Resources */,
+				7E8EB60520BDD3B1003FE861 /* als-merge-driver in Resources */,
 				7E4E89FA20A730F100C26343 /* merge.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +381,7 @@
 				7E2149D420B5D69E0097442A /* URLSchemeHandler.swift in Sources */,
 				7E4E8A5120ADCBB800C26343 /* MergeDriver.m in Sources */,
 				7E1D552C20228B4B00EBD74A /* ViewController.swift in Sources */,
+				7EE86C9D20B81D94001E28BA /* PullRequestViewController.swift in Sources */,
 				7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */,
 				7E4E8A4F20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h in Sources */,
 				7E4E89F320A4BDD800C26343 /* MultiSelectViewController.swift in Sources */,
