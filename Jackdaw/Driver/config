@@ -1,3 +1,0 @@
-[merge "als-merge-driver"]
-    name = A custom merge driver to resolve conflicts in an Ableton Live project file
-    driver = bash .merge/merge-als.sh %O %A %B

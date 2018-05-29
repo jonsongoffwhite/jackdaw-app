@@ -178,6 +178,26 @@ class GitHandler {
         }
     }
     
+    func checkout(toBranchWithName branchName: String) {
+        do {
+            let branches = try ogRepo.localBranches()
+            var branch: GTBranch?
+            for b in branches {
+                if let name = b.name {
+                    if name == branchName {
+                        branch = b
+                    }
+                }
+            }
+            if let branch = branch {
+                self.checkout(to: branch)
+            }
+        } catch {
+            print(error)
+            print("unable to checkout to branch with name \(branchName)")
+        }
+    }
+    
     func merge(with branch: GTBranch) throws {
         let path = directory.path.replacingOccurrences(of: " ", with: "\\ ")
         let branchName = String(branch.name!.split(separator: "/")[0])
@@ -361,8 +381,8 @@ class GitHandler {
         infoAttributesExists = manager.fileExists(atPath: directory.path + "/.git/info/attributes")
         gitConfigExists = manager.fileExists(atPath: directory.path + "/.git/config")
         
-        let localConfigURL = Bundle.main.url(forResource: "config", withExtension: "")!
-        let localAttributesURL = Bundle.main.url(forResource: "attributes", withExtension: "")!
+        let localConfigURL = Bundle.main.url(forResource: "config", withExtension: "", subdirectory: "als-merge-driver")!
+        let localAttributesURL = Bundle.main.url(forResource: "attributes", withExtension: "", subdirectory: "als-merge-driver")!
         
         let configString = try! String(contentsOf: localConfigURL, encoding: .utf8)
         let attributeString = try! String(contentsOf: localAttributesURL, encoding: .utf8)
@@ -431,19 +451,25 @@ class GitHandler {
         }
         
         let bashMergeURL = scriptsURL.appendingPathComponent("merge-als.sh")
-        let pyMergeURL   = scriptsURL.appendingPathComponent("merge.py")
+        
+        // Refactor to an iterator over the folder, if it ends in .py
+        let driverFiles = Bundle.main.urls(forResourcesWithExtension: "py", subdirectory: "als-merge-driver")!
+        
+        
+        for url in driverFiles {
+            let repoFile = scriptsURL.appendingPathComponent(url.lastPathComponent)
+            if !manager.fileExists(atPath: repoFile.path) {
+                let localData = try! Data(contentsOf: url)
+                manager.createFile(atPath: repoFile.path, contents: localData, attributes: nil)
+            }
+        }
         
         if !manager.fileExists(atPath: bashMergeURL.path) {
-            let localBashMerge = Bundle.main.url(forResource: "merge-als.sh", withExtension: "")!
+            let localBashMerge = Bundle.main.url(forResource: "merge-als.sh", withExtension: "", subdirectory: "als-merge-driver")!
             let localBashMergeData = try! Data(contentsOf: localBashMerge)
             manager.createFile(atPath: bashMergeURL.path, contents: localBashMergeData, attributes: nil)
         }
         
-        if !manager.fileExists(atPath: pyMergeURL.path) {
-            let localPyMerge   = Bundle.main.url(forResource: "merge.py", withExtension: "")!
-            let localPyMergeData   = try! Data(contentsOf: localPyMerge)
-            manager.createFile(atPath: pyMergeURL.path, contents: localPyMergeData, attributes: nil)
-        }
     }
     
     func gitStatus() -> Int32 {
