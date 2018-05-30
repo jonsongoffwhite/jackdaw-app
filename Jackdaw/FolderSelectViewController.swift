@@ -43,17 +43,15 @@ class FolderSelectViewController: NSViewController {
     
     @IBAction func confirm(sender: AnyObject) {
         if let _ = chosenDir {
-            performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "showGitCommands"), sender: sender)
+            let identifier = "GitCommandsViewController"
+            let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+            let gcvc = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: identifier)) as! GitCommandsViewController
+            gcvc.directory = chosenDir!
+            let appDelegate = NSApplication.shared.delegate as! AppDelegate
+            appDelegate.replaceContentViewController(with: gcvc)
         } else {
             // No directory selected
             return
-        }
-    }
-    
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if segue.destinationController is GitCommandsViewController {
-            let vc = segue.destinationController as! GitCommandsViewController
-            vc.directory = chosenDir!
         }
     }
     

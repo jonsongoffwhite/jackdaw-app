@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import Cocoa
+
+class MergePreviewViewController: NSViewController {
+    
+}
