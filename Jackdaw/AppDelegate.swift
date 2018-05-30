@@ -14,6 +14,8 @@ var CURRENT_GIT_HANDLER: GitHandler?
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    var eventMonitor: EventMonitor?
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let popover = NSPopover()
@@ -30,6 +32,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = FolderSelectViewController.freshController()
         
         NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(self.handleGetURL(event:reply:)), forEventClass: UInt32(kInternetEventClass), andEventID: UInt32(kAEGetURL) )
+        
+        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
+            if let strongSelf = self, strongSelf.popover.isShown {
+                strongSelf.closePopover(sender: event)
+            }
+        }
     }
     
     func replaceContentViewController(with viewController: NSViewController) {
@@ -94,10 +102,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
+        eventMonitor?.start()
     }
     
     func closePopover(sender: Any?) {
         popover.performClose(sender)
+        eventMonitor?.stop()
     }
 
     

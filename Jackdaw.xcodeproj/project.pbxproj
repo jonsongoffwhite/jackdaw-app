@@ -30,6 +30,7 @@
 		7E80F50D20A3316700ABCE04 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50A20A3316600ABCE04 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E80F50E20A3316700ABCE04 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; };
 		7E80F50F20A3316700ABCE04 /* SwiftGit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E87F4DD20BF0A3000391704 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87F4DC20BF0A3000391704 /* EventMonitor.swift */; };
 		7E8EB60520BDD3B1003FE861 /* als-merge-driver in Resources */ = {isa = PBXBuildFile; fileRef = 7E8EB60420BDD3B0003FE861 /* als-merge-driver */; };
 		7E8EB60720BEDA17003FE861 /* MergePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EB60620BEDA17003FE861 /* MergePreviewViewController.swift */; };
 		7E8EB60920BEE56D003FE861 /* AbletonProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EB60820BEE56D003FE861 /* AbletonProject.swift */; };
@@ -99,6 +100,7 @@
 		7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveGit.framework; path = Carthage/Build/Mac/ObjectiveGit.framework; sourceTree = "<group>"; };
 		7E80F50A20A3316600ABCE04 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGit2.framework; path = Carthage/Build/Mac/SwiftGit2.framework; sourceTree = "<group>"; };
+		7E87F4DC20BF0A3000391704 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		7E8EB60420BDD3B0003FE861 /* als-merge-driver */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "als-merge-driver"; sourceTree = "<group>"; };
 		7E8EB60620BEDA17003FE861 /* MergePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergePreviewViewController.swift; sourceTree = "<group>"; };
 		7E8EB60820BEE56D003FE861 /* AbletonProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbletonProject.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				7E1D552B20228B4B00EBD74A /* ViewController.swift */,
 				7E1D552D20228B4B00EBD74A /* Assets.xcassets */,
 				7E1D552F20228B4B00EBD74A /* Main.storyboard */,
+				7E87F4DC20BF0A3000391704 /* EventMonitor.swift */,
 				7E8EB60620BEDA17003FE861 /* MergePreviewViewController.swift */,
 				7E4E89F420A6149100C26343 /* CommitViewController.swift */,
 				7E4E89F220A4BDD800C26343 /* MultiSelectViewController.swift */,
@@ -362,6 +365,7 @@
 				7E8EB60920BEE56D003FE861 /* AbletonProject.swift in Sources */,
 				7E3DF61F2084EF410006AAD8 /* GitHandler.swift in Sources */,
 				7E2149D420B5D69E0097442A /* URLSchemeHandler.swift in Sources */,
+				7E87F4DD20BF0A3000391704 /* EventMonitor.swift in Sources */,
 				7E4E8A5120ADCBB800C26343 /* MergeDriver.m in Sources */,
 				7E1D552C20228B4B00EBD74A /* ViewController.swift in Sources */,
 				7EE86C9D20B81D94001E28BA /* PullRequestViewController.swift in Sources */,
