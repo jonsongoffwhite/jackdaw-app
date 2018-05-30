@@ -22,9 +22,9 @@ class GitCommandsViewController: NSViewController {
     @IBOutlet weak var mergeBranchDropdown: NSPopUpButton!
     
     var abletonLocation: String = "/Applications/Ableton Live 10 Suite.app"
-    var abletonProjectFiles: [URL] = []
     
     var git: GitHandler!
+    var abletonProject: AbletonProject!
     
     //TODO: Check it has .git subdir
     var directory: URL?
@@ -36,18 +36,12 @@ class GitCommandsViewController: NSViewController {
         if let dir = directory {
             do {
                 git = try GitHandler(for: dir)
+                CURRENT_GIT_HANDLER = git
                 projectName.stringValue = String(dir.path.split(separator: "/").last!)
                 projectName.stringValue += ", is Git: \(git.isGitDirectory())"
                 
-                // Populate the abletonProjectFileNames variable
-                let manager = FileManager.default
-                do {
-                    let files: [URL] = try manager.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-                    
-                    self.abletonProjectFiles = files.filter { (url) -> Bool in
-                        return url.pathExtension == ABLETON_PATH_EXTENSION
-                    }
-                }
+                self.abletonProject = AbletonProject(directory: dir)
+                
             } catch GitError.invalidRepoPath {
                 // Path supplied is not a repository
                 // Choose again
@@ -65,7 +59,7 @@ class GitCommandsViewController: NSViewController {
         }
         
         // populate projectFileDropdown
-        self.projectFileDropdown.addItems(withTitles: abletonProjectFiles.map({ (url) -> String in
+        self.projectFileDropdown.addItems(withTitles: self.abletonProject.projectFiles.map({ (url) -> String in
                 return url.lastPathComponent
             })
         )
@@ -85,6 +79,9 @@ class GitCommandsViewController: NSViewController {
         
         // Register merge driver
         //init_als_merge_driver()
+        
+        // Add git handler to global dict
+        //GIT_HANDLERS[directory!] = git
             
         
     }
@@ -155,16 +152,10 @@ class GitCommandsViewController: NSViewController {
             print("no project selected")
             return
         }
-        let projectURL = self.abletonProjectFiles.first { (url) -> Bool in
+        let projectURL = self.abletonProject.projectFiles.first { (url) -> Bool in
             url.lastPathComponent == project
         }
-        do {
-            try NSWorkspace.shared.open([projectURL!], withApplicationAt: URL(fileURLWithPath: self.abletonLocation), options: NSWorkspace.LaunchOptions.default, configuration: [:])
-        } catch {
-            print(error)
-            print("error opening project file")
-        }
-        
+        self.abletonProject.open(projectURL: projectURL!)
     }
     
 }
