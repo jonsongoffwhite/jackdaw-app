@@ -23,6 +23,8 @@ class GitCommandsViewController: NSViewController {
     
     var abletonLocation: String = "/Applications/Ableton Live 10 Suite.app"
     
+    var pullRequestVC: PullRequestViewController!
+    
     var git: GitHandler!
     var abletonProject: AbletonProject!
     

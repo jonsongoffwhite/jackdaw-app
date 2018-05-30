@@ -10,11 +10,15 @@ import Cocoa
 
 let JACKDAW_DOMAIN = "jackdaw"
 
+var CURRENT_GIT_HANDLER: GitHandler?
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let popover = NSPopover()
+    
+    var viewControllerStack: [NSViewController] = []
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -26,6 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = FolderSelectViewController.freshController()
         
         NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(self.handleGetURL(event:reply:)), forEventClass: UInt32(kInternetEventClass), andEventID: UInt32(kAEGetURL) )
+    }
+    
+    func replaceContentViewController(with viewController: NSViewController) {
+        popover.contentViewController = viewController
     }
     
     @objc func handleGetURL(event: NSAppleEventDescriptor, reply:NSAppleEventDescriptor) {
@@ -42,6 +50,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if domain == JACKDAW_DOMAIN {
                 let handler = URLSchemeHandler(message: message)
+                let alert = NSAlert()
+                
+                var git: GitHandler?, project: AbletonProject?
+                
+                
+                if let viewController = popover.contentViewController {
+                    if let viewController = viewController as? GitCommandsViewController {
+                        git = viewController.git
+                        project = viewController.abletonProject
+                        print("is a GitCommandsViewController")
+                        
+                    } else {
+                        // need to setup git and project here
+                        print("is not a GitCommandsViewController")
+                        print(viewController)
+                    }
+                    self.viewControllerStack.append(viewController)
+                }
+                
+                let prViewController = PullRequestViewController.freshController(repo: "repo", branchA: handler.args[0], branchB: handler.args[1], project: project!, git: git!)
+                
+                popover.contentViewController = prViewController
+
             }
             
         }
