@@ -80,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     self.viewControllerStack.append(viewController)
                 }
                 
-                let prViewController = PullRequestViewController.freshController(repo: "repo", branchA: handler.args[0], branchB: handler.args[1], project: project!, git: git!)
+                let prViewController = PullRequestViewController.freshController(repo: "repo", base: handler.args[0], branch: handler.args[1], project: project!, git: git!)
                 
                 popover.contentViewController = prViewController
 
@@ -98,6 +98,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             closePopover(sender: sender)
         } else {
             showPopover(sender: sender)
+        }
+    }
+    
+    func returnFromSchemeView() {
+        if self.viewControllerStack.count > 0 {
+            popover.contentViewController = self.viewControllerStack.last
+        } else {
+            // Show folder select or something else
+            // This happens when the URL scheme view was made when nothing
+            // was behind it
         }
     }
     

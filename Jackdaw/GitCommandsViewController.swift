@@ -84,7 +84,7 @@ class GitCommandsViewController: NSViewController {
         // Add git handler to global dict
         //GIT_HANDLERS[directory!] = git
             
-        
+        git.addChanged()
     }
     
     @IBAction func commitChangesAndPush(_ sender: Any?) {

@@ -5,10 +5,10 @@
 //  Created by Jonson Goff-White on 16/04/2018.
 //  Copyright © 2018 Jonson Goff-White. All rights reserved.
 //
-//  WORKING DIRECTOR
-//      add
+//  WORKING DIRECTORY
+//      add                 RED
 //  INDEX
-//      commit
+//      commit              GREEN
 //  REPOSITORY
 
 import Foundation
@@ -140,16 +140,36 @@ class GitHandler {
         return manager.fileExists(atPath: directory.path + "/.git")
     }
     
-    func commitAllChanges(with message: String) throws -> Commit {
-        addAllChanges()
+    func addChanged() {
+        // iterate through files in repo
+        // add modified
         
+        
+        let status = repo.status().value!
+        
+        for entry in status {
+            
+            if let newFilePath = entry.headToIndex?.newFile?.path {
+                let _ = repo.add(path: newFilePath)
+            }
+        
+            if let newFilePath = entry.indexToWorkDir?.newFile?.path {
+                let _ = repo.add(path: newFilePath)
+            }
+            
+        }
+        
+        
+    }
+    
+    func commit(with message: String) throws -> Commit {
         let sig = Signature(
             name: "Jonson Goff-White",
             email: "jonnygoffwhite@gmail.com",
             time: Date(),
             timeZone: TimeZone.current
         )
-
+        
         let result = repo.commit(message: message, signature: sig)
         if let commit = result.value {
             // Try and push the changes
@@ -161,6 +181,12 @@ class GitHandler {
             print(result.error)
             throw GitError.unableToCommitAll
         }
+    }
+    
+    func commitAllChanges(with message: String) throws -> Commit {
+        addAllChanges()
+        
+        return try commit(with: message)
     }
     
     private func addAllChanges() {
@@ -326,6 +352,31 @@ class GitHandler {
     func getCurrentBranch() -> String? {
         let curr = try? self.ogRepo.currentBranch()
         return curr?.name
+    }
+    
+    func getCurrentBranchObject() -> GTBranch {
+        return try! self.ogRepo.currentBranch()
+    }
+    
+    func getBranch(with branchName: String) -> GTBranch? {
+        do {
+            let branches = try ogRepo.localBranches()
+            var branch: GTBranch?
+            for b in branches {
+                if let name = b.name {
+                    if name == branchName {
+                        branch = b
+                    }
+                }
+            }
+            if let branch = branch {
+                return branch
+            }
+        } catch {
+            print(error)
+            print("unable to checkout to branch with name \(branchName)")
+        }
+        return nil
     }
     
     func statusDescription() -> String {

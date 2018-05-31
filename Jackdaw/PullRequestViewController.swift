@@ -23,17 +23,17 @@ class PullRequestViewController: NSViewController {
     
     var git: GitHandler!
     var project: AbletonProject!
-    var branchA: String!
-    var branchB: String!
+    var base: String!
+    var branch: String!
     
     override func viewDidLoad() {
         print("called")
-        branchButtonA.data = branchA
-        branchButtonA.title = String(branchA.split(separator: ":")[1])
+        branchButtonA.data = base
+        branchButtonA.title = String(base.split(separator: ":")[1])
         branchButtonA.sizeToFit()
         
-        branchButtonB.data = branchB
-        branchButtonB.title = String(branchB.split(separator: ":")[1])
+        branchButtonB.data = branch
+        branchButtonB.title = String(branch.split(separator: ":")[1])
         branchButtonB.sizeToFit()
         
         // Populate projectFileDropdown
@@ -56,14 +56,51 @@ class PullRequestViewController: NSViewController {
                 return
             }
             git.checkout(toBranchWithName: data)
+            project.open(projectURL: projectFileDropdown.selectedItem?.representedObject as! URL)
         }
         print(git.getCurrentBranch())
+    }
+    
+    @IBAction func merge(_ sender: Any) {
+        
+        // do a git pull here to ensure everything up to date?
+        // stash changes on initial branch then reapply at end?
+        
+        let initialBranch = git.getCurrentBranchObject()
+        
+        let baseName = String(self.base.split(separator: ":").last!)
+        git.checkout(toBranchWithName: baseName)
+        
+        let branchName = String(self.branch.split(separator: ":").last!)
+        let branch = git.getBranch(with: branchName)!
+        
+        do {
+            try git.merge(with: branch)
+            //try git.commitAllChanges(with: "Merge commit")
+            // commit all changed files, not all files
+            git.addChanged()
+            let _ = try git.commit(with: "Merge commit")
+            git.pushToRemote()
+        } catch {
+            print("merge failed")
+            print(error)
+        }
+        
+        git.checkout(to: initialBranch)
+        
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        appDelegate.returnFromSchemeView()
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        appDelegate.returnFromSchemeView()
     }
 }
 
 extension PullRequestViewController {
     // MARK: Storyboard instantiation
-    static func freshController(repo: String, branchA: String, branchB: String, project: AbletonProject, git: GitHandler) -> PullRequestViewController {
+    static func freshController(repo: String, base: String, branch: String, project: AbletonProject, git: GitHandler) -> PullRequestViewController {
         // Get Main story board
         let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
         
@@ -74,8 +111,8 @@ extension PullRequestViewController {
         }
         viewcontroller.git = git
         viewcontroller.project = project
-        viewcontroller.branchA = branchA
-        viewcontroller.branchB = branchB
+        viewcontroller.base = base
+        viewcontroller.branch = branch
         return viewcontroller
     }
 }
