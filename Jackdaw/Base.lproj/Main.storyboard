@@ -697,7 +697,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-vg-ev0">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-vg-ev0" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
                                 <rect key="frame" x="182" y="13" width="88" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Commit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eNs-Y2-fOH">
@@ -730,7 +730,7 @@
                                 <rect key="frame" x="37" y="233" width="406" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="VnN-YY-J4X">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="13" name="Futura-Medium"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -739,23 +739,12 @@
                                 <rect key="frame" x="146" y="153" width="189" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Branch" id="Pef-Cf-EC1">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="13" name="Futura-Medium"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tRL-eS-pkT">
-                                <rect key="frame" x="205" y="27" width="71" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7R2-WD-U2K">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="push:" target="XfG-lQ-9wD" id="iUk-gj-xxB"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJy-qZ-BCb">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJy-qZ-BCb" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
                                 <rect key="frame" x="185" y="74" width="111" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Set Remote" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yIt-Eo-lBw">
@@ -766,18 +755,18 @@
                                     <action selector="setRemote:" target="XfG-lQ-9wD" id="kgW-rx-SFQ"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqi-Jc-XPe">
-                                <rect key="frame" x="168" y="117" width="145" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqi-Jc-XPe" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
+                                <rect key="frame" x="167" y="117" width="147" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Commit Changes" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wLM-wH-6ok">
+                                <buttonCell key="cell" type="push" title="Commit and Push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wLM-wH-6ok">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="commitChanges:" target="XfG-lQ-9wD" id="EZ8-Q8-Sle"/>
+                                    <action selector="commitChangesAndPush:" target="XfG-lQ-9wD" id="fcJ-CM-52w"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixj-T7-a19">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ixj-T7-a19" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
                                 <rect key="frame" x="328" y="27" width="138" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Open in Ableton" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WgP-Sj-t8l">
@@ -788,7 +777,7 @@
                                     <action selector="openInAbleton:" target="XfG-lQ-9wD" id="Ihu-Xe-teN"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YKQ-Ko-Bys">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YKQ-Ko-Bys" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
                                 <rect key="frame" x="331" y="184" width="134" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Change Branch" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aRK-PJ-QRx">
@@ -804,7 +793,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="mgW-8k-eMB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
+                                    <font key="font" size="13" name="Futura-Medium"/>
                                     <menu key="menu" id="ojr-CI-4ks"/>
                                 </popUpButtonCell>
                             </popUpButton>
@@ -813,11 +802,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="lDS-RZ-Jev">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
+                                    <font key="font" size="13" name="Futura-Medium"/>
                                     <menu key="menu" id="naD-wa-6Zh"/>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LOl-ZQ-Sk7">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LOl-ZQ-Sk7" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
                                 <rect key="frame" x="14" y="27" width="133" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Merge" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Cs-mU-Aga">
@@ -901,7 +890,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dMA-4O-dOY">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dMA-4O-dOY" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
                                 <rect key="frame" x="333" y="132" width="79" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b1v-Ia-Rrt">
@@ -1007,21 +996,11 @@
             <objects>
                 <viewController storyboardIdentifier="FolderSelectViewController" id="0oT-it-oCh" customClass="FolderSelectViewController" customModule="Jackdaw" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="RzC-Dl-QLP">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="228" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0KD-g9-Cvd">
-                                <rect key="frame" x="125" y="139" width="96" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ESx-jU-L8x">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIm-sF-cKm">
-                                <rect key="frame" x="259" y="132" width="85" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CIm-sF-cKm" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
+                                <rect key="frame" x="72" y="198" width="85" height="32"/>
                                 <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ogl-ho-Idf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1030,9 +1009,19 @@
                                     <action selector="browseFileWithSender:" target="0oT-it-oCh" id="Nad-jR-Xof"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MMr-zv-cJH">
-                                <rect key="frame" x="181" y="46" width="89" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KM2-k8-if0">
+                                <rect key="frame" x="66" y="131" width="96" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="WjD-JW-j33"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="SDf-gY-ZwL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MMr-zv-cJH" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
+                                <rect key="frame" x="70" y="45" width="89" height="32"/>
                                 <buttonCell key="cell" type="push" title="Confirm" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JBh-fb-f8O">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1041,25 +1030,25 @@
                                     <action selector="confirmWithSender:" target="0oT-it-oCh" id="LxK-cN-YB7"/>
                                 </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KM2-k8-if0">
-                                <rect key="frame" x="125" y="138" width="96" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="SDf-gY-ZwL">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="KM2-k8-if0" firstAttribute="centerX" secondItem="MMr-zv-cJH" secondAttribute="centerX" id="ERt-fO-96P"/>
+                            <constraint firstItem="CIm-sF-cKm" firstAttribute="centerX" secondItem="KM2-k8-if0" secondAttribute="centerX" id="QON-iX-8ZG"/>
+                            <constraint firstItem="CIm-sF-cKm" firstAttribute="top" secondItem="RzC-Dl-QLP" secondAttribute="top" constant="74" id="RpK-BI-a0H"/>
+                            <constraint firstItem="KM2-k8-if0" firstAttribute="top" secondItem="CIm-sF-cKm" secondAttribute="bottom" constant="52" id="UZ4-yk-91m"/>
+                            <constraint firstItem="MMr-zv-cJH" firstAttribute="top" secondItem="KM2-k8-if0" secondAttribute="bottom" constant="58" id="Yh7-3Z-DIb"/>
+                            <constraint firstItem="CIm-sF-cKm" firstAttribute="centerX" secondItem="RzC-Dl-QLP" secondAttribute="centerX" id="y1D-TI-cXw"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmButton" destination="MMr-zv-cJH" id="6dZ-f0-jbb"/>
                         <outlet property="selectedDir" destination="KM2-k8-if0" id="Dv6-32-dhU"/>
                         <segue destination="XfG-lQ-9wD" kind="sheet" identifier="showGitCommands" id="aT8-3H-GX9"/>
                     </connections>
                 </viewController>
                 <customObject id="9eR-Kc-4qf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-66" y="1183"/>
+            <point key="canvasLocation" x="-177" y="1183"/>
         </scene>
     </scenes>
 </document>

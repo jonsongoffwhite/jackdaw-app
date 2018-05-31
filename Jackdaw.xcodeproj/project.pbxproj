@@ -31,6 +31,7 @@
 		7E80F50E20A3316700ABCE04 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; };
 		7E80F50F20A3316700ABCE04 /* SwiftGit2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E87F4DD20BF0A3000391704 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87F4DC20BF0A3000391704 /* EventMonitor.swift */; };
+		7E87F4E020BF2C4B00391704 /* JackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E87F4DF20BF2C4B00391704 /* JackButton.swift */; };
 		7E8EB60520BDD3B1003FE861 /* als-merge-driver in Resources */ = {isa = PBXBuildFile; fileRef = 7E8EB60420BDD3B0003FE861 /* als-merge-driver */; };
 		7E8EB60720BEDA17003FE861 /* MergePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EB60620BEDA17003FE861 /* MergePreviewViewController.swift */; };
 		7E8EB60920BEE56D003FE861 /* AbletonProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EB60820BEE56D003FE861 /* AbletonProject.swift */; };
@@ -101,6 +102,7 @@
 		7E80F50A20A3316600ABCE04 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGit2.framework; path = Carthage/Build/Mac/SwiftGit2.framework; sourceTree = "<group>"; };
 		7E87F4DC20BF0A3000391704 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		7E87F4DF20BF2C4B00391704 /* JackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackButton.swift; sourceTree = "<group>"; };
 		7E8EB60420BDD3B0003FE861 /* als-merge-driver */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "als-merge-driver"; sourceTree = "<group>"; };
 		7E8EB60620BEDA17003FE861 /* MergePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergePreviewViewController.swift; sourceTree = "<group>"; };
 		7E8EB60820BEE56D003FE861 /* AbletonProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbletonProject.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		7E1D552820228B4B00EBD74A /* Jackdaw */ = {
 			isa = PBXGroup;
 			children = (
+				7E87F4DE20BF2C3000391704 /* UI */,
 				7E4E8A5020ADCBB800C26343 /* MergeDriver.m */,
 				7EF6AE3420ADCEA4007D4055 /* MergeDriver.h */,
 				7E4E8A4E20ADC60900C26343 /* Jackdaw-App-Bridging-Header.h */,
@@ -215,6 +218,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E87F4DE20BF2C3000391704 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7E87F4DF20BF2C4B00391704 /* JackButton.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E87F4E020BF2C4B00391704 /* JackButton.swift in Sources */,
 				7E3DF61D2084BD880006AAD8 /* FolderSelectViewController.swift in Sources */,
 				7E4E89F520A6149100C26343 /* CommitViewController.swift in Sources */,
 				7EF6AE3520ADCEA4007D4055 /* MergeDriver.h in Sources */,

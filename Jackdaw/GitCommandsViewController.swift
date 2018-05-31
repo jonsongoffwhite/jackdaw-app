@@ -40,7 +40,6 @@ class GitCommandsViewController: NSViewController {
                 git = try GitHandler(for: dir)
                 CURRENT_GIT_HANDLER = git
                 projectName.stringValue = String(dir.path.split(separator: "/").last!)
-                projectName.stringValue += ", is Git: \(git.isGitDirectory())"
                 
                 self.abletonProject = AbletonProject(directory: dir)
                 
@@ -88,12 +87,19 @@ class GitCommandsViewController: NSViewController {
         
     }
     
-    @IBAction func commitChanges(_ sender: Any?) {
+    @IBAction func commitChangesAndPush(_ sender: Any?) {
         
         let vc = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "commit")) as! CommitViewController
         
         vc.delegate = self
         self.presentViewControllerAsSheet(vc)
+        
+        // If remoteURL is set
+        if let _ = git.remoteURL {
+            git.pushToRemote()
+        } else {
+            print ("not set")
+        }
         
     }
     
@@ -109,14 +115,7 @@ class GitCommandsViewController: NSViewController {
         let _ = git.setRemote(with: repoURL)
     }
     
-    @IBAction func push(_ sender: Any?) {
-        // If remoteURL is set
-        if let _ = git.remoteURL {
-            git.pushToRemote()
-        } else {
-            print ("not set")
-        }
-    }
+
     
     @IBAction func checkoutBranch(_ sender: Any?) {
         // segue to popover branch select

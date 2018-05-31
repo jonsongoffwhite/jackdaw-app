@@ -9,6 +9,7 @@
 import Cocoa
 
 class FolderSelectViewController: NSViewController {
+    @IBOutlet weak var confirmButton: NSButton!
     
     @IBOutlet weak var selectedDir: NSTextField?
     var chosenDir: URL?

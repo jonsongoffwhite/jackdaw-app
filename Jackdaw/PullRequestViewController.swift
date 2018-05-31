@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class DataButton: NSButton {
+class DataButton: JackButton {
     
     var data: Any?
     

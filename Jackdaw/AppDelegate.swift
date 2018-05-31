@@ -38,6 +38,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 strongSelf.closePopover(sender: event)
             }
         }
+        
+        // Change styles
+        
     }
     
     func replaceContentViewController(with viewController: NSViewController) {
