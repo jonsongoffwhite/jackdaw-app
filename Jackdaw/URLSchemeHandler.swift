@@ -16,9 +16,13 @@ class URLSchemeHandler {
     var args: [String]
     
     init(message: String) {
-        var split = message.components(separatedBy: "/")
-        self.type = split[0]
-        self.args = split[1].components(separatedBy: "+")
+        //var split = message.components(separatedBy: "/")
+        var split = message.split(separator: "/", maxSplits: 1, omittingEmptySubsequences: true)
+        print(split)
+        self.type = String(split[0])
+        split.remove(at: 0)
+        print(split)
+        self.args = String(split[0]).components(separatedBy: "+")
     }
     
     func execute() {

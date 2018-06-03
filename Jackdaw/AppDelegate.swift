@@ -65,24 +65,48 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 
                 var git: GitHandler?, project: AbletonProject?
                 
+                if handler.type == "pr" {
                 
-                if let viewController = popover.contentViewController {
-                    if let viewController = viewController as? GitCommandsViewController {
-                        git = viewController.git
-                        project = viewController.abletonProject
-                        print("is a GitCommandsViewController")
-                        
-                    } else {
-                        // need to setup git and project here
-                        print("is not a GitCommandsViewController")
-                        print(viewController)
+                    if let viewController = popover.contentViewController {
+                        if let viewController = viewController as? GitCommandsViewController {
+                            git = viewController.git
+                            project = viewController.abletonProject
+                            print("is a GitCommandsViewController")
+                            
+                        } else {
+                            // need to setup git and project here
+                            print("is not a GitCommandsViewController")
+                            print(viewController)
+                        }
+                        self.viewControllerStack.append(viewController)
                     }
-                    self.viewControllerStack.append(viewController)
+                    
+                    let prViewController = PullRequestViewController.freshController(repo: "repo", base: handler.args[0], branch: handler.args[1], project: project!, git: git!)
+                    
+                    popover.contentViewController = prViewController
+                
+                } else if handler.type == "merge" {
+                    print("merge type scheme")
+                    if let viewController = popover.contentViewController {
+                        
+                        var project: AbletonProject!
+                        
+                        // Coming from GitCommandsViewController
+                        if let viewController = viewController as? GitCommandsViewController {
+                            print("is currently GitCommandsViewController")
+                            project = viewController.abletonProject
+                        } else if let viewController = viewController as? PullRequestViewController {
+                            project = viewController.project
+                        }
+                        
+                        
+                        let csvc = ConflictSelectViewController.freshController(project: project, conflicts: handler.args)
+                        print(handler.args)
+                        self.viewControllerStack.append(viewController)
+                        popover.contentViewController = csvc
+                    }
+                    
                 }
-                
-                let prViewController = PullRequestViewController.freshController(repo: "repo", base: handler.args[0], branch: handler.args[1], project: project!, git: git!)
-                
-                popover.contentViewController = prViewController
 
             }
             
@@ -103,7 +127,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func returnFromSchemeView() {
         if self.viewControllerStack.count > 0 {
-            popover.contentViewController = self.viewControllerStack.last
+            popover.contentViewController = self.viewControllerStack.popLast()
         } else {
             // Show folder select or something else
             // This happens when the URL scheme view was made when nothing

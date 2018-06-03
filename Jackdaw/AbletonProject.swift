@@ -26,6 +26,16 @@ class AbletonProject {
         }
     }
     
+    // Gets URL for a string that is a relative path from the directory
+    func getURLFromString(str: String) -> URL {
+        var url: URL = directory
+        let split = str.split(separator: "/")
+        for sub in split {
+            url = url.appendingPathComponent(String(sub))
+        }
+        return url
+    }
+    
     // var git: GitHandler
     
     func open(projectURL: URL) {

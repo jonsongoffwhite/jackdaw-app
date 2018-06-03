@@ -195,13 +195,15 @@ class GitHandler {
     }
     
     func checkout(to branch: GTBranch) {
-        let options = GTCheckoutOptions(strategy: .allowConflicts)
+        let options = GTCheckoutOptions(strategy: .safe)
+    
         do {
             try ogRepo.checkoutReference(branch.reference, options: options)
         } catch {
             print(error)
             print("error checking out")
         }
+        
     }
     
     func checkout(toBranchWithName branchName: String) {
@@ -227,7 +229,12 @@ class GitHandler {
     func merge(with branch: GTBranch) throws {
         let path = directory.path.replacingOccurrences(of: " ", with: "\\ ")
         let branchName = String(branch.name!.split(separator: "/")[0])
-        shell(command: "cd \(path) && git merge \(branchName)")
+        
+        //let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
+
+        self.shell(command: "cd \(path) && git merge \(branchName) --no-edit")
+
+        
         
         
 //        let ocurrent = try? ogRepo.currentBranch()
@@ -515,10 +522,20 @@ class GitHandler {
             }
         }
         
+        
+        
         if !manager.fileExists(atPath: bashMergeURL.path) {
             let localBashMerge = Bundle.main.url(forResource: "merge-als.sh", withExtension: "", subdirectory: "als-merge-driver")!
             let localBashMergeData = try! Data(contentsOf: localBashMerge)
             manager.createFile(atPath: bashMergeURL.path, contents: localBashMergeData, attributes: nil)
+        }
+        
+        let blankProjURL = scriptsURL.appendingPathComponent("blank.xml")
+        
+        if !manager.fileExists(atPath: blankProjURL.path) {
+            let localBlankProj = Bundle.main.url(forResource: "blank.xml", withExtension: "", subdirectory: "als-merge-driver")!
+            let localBlankProjData = try! Data(contentsOf: localBlankProj)
+            manager.createFile(atPath: blankProjURL.path, contents: localBlankProjData, attributes: nil)
         }
         
     }
