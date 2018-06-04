@@ -247,104 +247,18 @@ class GitHandler {
     func merge(with branch: GTBranch) throws {
         let path = directory.path.replacingOccurrences(of: " ", with: "\\ ")
         let branchName = String(branch.name!.split(separator: "/")[0])
-        
-        //let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
 
         DispatchQueue.global(qos: .background).async {
-            self.shell(command: "cd \(path) && git merge \(branchName) --no-edit")
+            let _ = self.shell(command: "cd \(path) && git merge \(branchName) --no-edit")
         }
         
-
-        
-        
-        
-//        let ocurrent = try? ogRepo.currentBranch()
-//        guard let current = ocurrent else {
-//            throw GitError.currentBranchInvalid
-//        }
-//
-//        // Arguments mislabelled
-//        // intoCurrentBranch is actually fromBranch
-//        do {
-//            try ogRepo.mergeBranch(intoCurrentBranch: branch)
-//        } catch {
-//            print(error)
-//            throw GitError.mergeFailure
-//        }
-        
-        
-//        let tmpURL = directory.appendingPathComponent(".tmp")
-//        do {
-//            try manager.createDirectory(at: tmpURL, withIntermediateDirectories: false, attributes: nil)
-//        } catch {
-//            // Already exists?
-//            print("error creating temp merge directory")
-//            print(error)
-//            throw GitError.mergeFailure
-//        }
-//
-//        func saveTempData(appendix: String) -> (URL, Data) -> () {
-//            return {(url: URL, data: Data) in
-//                let filename = url.lastPathComponent
-//                let file = tmpURL.appendingPathComponent(appendix + "_" + filename)
-//                print(url)
-//                self.manager.createFile(atPath: file.path, contents: data, attributes: nil)
-//            }
-//        }
-//
-//        guard let currentBranch = try? ogRepo.currentBranch() else {
-//            throw GitError.mergeFailure
-//        }
-//        let ourData = copyAlss()
-//        ourData.forEach(saveTempData(appendix: "ours"))
-//        guard let ourOID = currentBranch.oid else {
-//            throw GitError.mergeFailure
-//        }
-//
-//        do {
-//            let options = GTCheckoutOptions(strategy: .safe)
-//            try ogRepo.checkoutReference(branch.reference, options: options)
-//        } catch {
-//            print(error)
-//            throw GitError.mergeFailure
-//        }
-//
-//        let theirData = copyAlss()
-//
-//        guard let theirOID = branch.oid else {
-//            throw GitError.mergeFailure
-//        }
-//        theirData.forEach(saveTempData(appendix: "theirs"))
-//        guard let ancestorCommit = try? ogRepo.mergeBaseBetweenFirstOID(ourOID, secondOID: theirOID) else {
-//            throw GitError.mergeFailure
-//        }
-//        do {
-//            let options = GTCheckoutOptions(strategy: .safe)
-//            try ogRepo.checkoutCommit(ancestorCommit, options: options)
-//        } catch {
-//            print(error)
-//            throw GitError.mergeFailure
-//        }
-//        let baseData = copyAlss()
-//        baseData.forEach(saveTempData(appendix: "base"))
-//
-//
-//        // Return to original branch
-//        do {
-//            let options = GTCheckoutOptions(strategy: .safe)
-//            try ogRepo.checkoutReference(currentBranch.reference, options: options)
-//        } catch {
-//            print(error)
-//            throw GitError.mergeFailure
-//        }
-//
-//        do {
-//            //manager.removeItem(at: directory.appendingPathComponent(".tmp"))
-//        } catch {
-//            print(error)
-//        }
-        
-        
+    }
+    
+    func abortMerge() {
+        DispatchQueue.global(qos: .background).async {
+            let path = self.directory.path.replacingOccurrences(of: " ", with: "\\ ")
+            let _ = self.shell(command: "cd \(path) && git merge --abort")
+        }
     }
     
     // Returns mapping of file URL to data at that time

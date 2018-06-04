@@ -50,20 +50,19 @@ class ConflictSelectViewController: NSViewController {
     }
     
     @IBAction func chosen(_ sender: Any?) {
-        // do some git stuff
-        // git.resolve?
-        // return to previous controller
-        
-        // all have been chosen
         if self.conflictSolutions!.count ==  self.conflicts!.count {
-            print(self.conflictSolutions!.count)
-            print(self.conflicts!.count)
-            print(self.conflictSolutions!)
-            print(self.conflictSolutions! as! [URL: Bool])
             git.resolve(with: self.conflictSolutions! as! [URL: Bool])
             let appDelegate = NSApplication.shared.delegate as! AppDelegate
             appDelegate.returnFromSchemeView()
         }
+    }
+    
+    @IBAction func cancel(_ sender: Any?) {
+        
+        git.abortMerge()
+        
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        appDelegate.returnFromSchemeView()
     }
     
     @objc func radioSelected(_ sender: NSButton) {
