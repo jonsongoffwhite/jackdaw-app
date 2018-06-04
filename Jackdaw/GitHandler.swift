@@ -22,6 +22,7 @@ enum GitError: Error {
     case unableToCommitAll
     case mergeFailure
     case currentBranchInvalid
+    case unableToCreateBranch
 }
 
 class GitHandler {
@@ -221,7 +222,6 @@ class GitHandler {
             print(error)
             print("error checking out")
         }
-        
     }
     
     func checkout(toBranchWithName branchName: String) {
@@ -252,6 +252,20 @@ class GitHandler {
             let _ = self.shell(command: "cd \(path) && git merge \(branchName) --no-edit")
         }
         
+    }
+    
+    func createBranch(with name: String) throws -> GTBranch {
+        do {
+            let branch = try self.ogRepo.createBranchNamed(
+                name,
+                from: self.getCurrentBranchObject().oid!,
+                message: nil
+            )
+            return branch
+        } catch {
+            print(error)
+            throw GitError.unableToCreateBranch
+        }
     }
     
     func abortMerge() {

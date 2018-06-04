@@ -115,7 +115,29 @@ class GitCommandsViewController: NSViewController {
         let _ = git.setRemote(with: repoURL)
     }
     
-
+    @IBAction func newBranch(_ sender: Any) {
+        let branchName = self.showTextInput(withMessage: "Enter a new branch name")
+        let branch = try? git.createBranch(with: branchName)
+        if let branch = branch {
+            git.checkout(to: branch)
+        } else {
+            let alert = NSAlert()
+            alert.messageText = "Unable to create branch"
+            alert.runModal()
+        }
+    }
+    
+    private func showTextInput(withMessage message: String) -> String {
+        let alert = NSAlert()
+        alert.messageText = message
+        let input = NSTextField(frame: NSMakeRect(0, 0, 200, 24))
+        alert.accessoryView = input
+        alert.alertStyle = NSAlert.Style.informational
+        alert.runModal()
+        let result = input.stringValue
+        return result
+    }
+    
     
     @IBAction func checkoutBranch(_ sender: Any?) {
         // segue to popover branch select

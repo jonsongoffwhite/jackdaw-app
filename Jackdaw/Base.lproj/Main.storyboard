@@ -817,6 +817,17 @@
                                     <action selector="merge:" target="XfG-lQ-9wD" id="Ozn-hd-Xde"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-uV-hRH" customClass="JackButton" customModule="Jackdaw" customModuleProvider="target">
+                                <rect key="frame" x="331" y="151" width="135" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="New Branch" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f73-wN-elY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="newBranch:" target="XfG-lQ-9wD" id="lDO-IE-l9B"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -1224,7 +1235,7 @@ Gw
                 </viewController>
                 <customObject id="9eR-Kc-4qf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-177" y="1183"/>
+            <point key="canvasLocation" x="-460" y="1167"/>
         </scene>
     </scenes>
     <resources>
