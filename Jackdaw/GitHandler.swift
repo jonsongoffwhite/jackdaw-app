@@ -162,6 +162,24 @@ class GitHandler {
         
     }
     
+    func resolve(with resolution: [URL: Bool]) {
+        
+        var simpleResolution: [String: Bool] = [:]
+        
+        for key in resolution.keys {
+            simpleResolution[key.lastPathComponent] = resolution[key]
+        }
+        
+        print(simpleResolution)
+
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: simpleResolution, options: .prettyPrinted)
+            self.manager.createFile(atPath: directory.appendingPathComponent(".merge/done").path, contents: jsonData, attributes: nil)
+        } catch {
+            // error writing json to file
+        }
+    }
+    
     func commit(with message: String) throws -> Commit {
         let sig = Signature(
             name: "Jonson Goff-White",
@@ -232,7 +250,10 @@ class GitHandler {
         
         //let taskQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)
 
-        self.shell(command: "cd \(path) && git merge \(branchName) --no-edit")
+        DispatchQueue.global(qos: .background).async {
+            self.shell(command: "cd \(path) && git merge \(branchName) --no-edit")
+        }
+        
 
         
         

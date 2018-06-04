@@ -836,19 +836,22 @@
             <objects>
                 <viewController storyboardIdentifier="ConflictSelectViewController" id="VvI-lo-Z7Y" customClass="ConflictSelectViewController" customModule="Jackdaw" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rl9-Cf-YIB">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="338"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZA5-O4-dCM">
-                                <rect key="frame" x="190" y="13" width="72" height="32"/>
+                                <rect key="frame" x="190" y="51" width="72" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qqD-jM-xTi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="chosen:" target="VvI-lo-Z7Y" id="kJp-Ju-gDV"/>
+                                </connections>
                             </button>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLT-WM-ppt">
-                                <rect key="frame" x="20" y="61" width="410" height="219"/>
+                                <rect key="frame" x="20" y="99" width="410" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="sdx-KM-qF6">
                                     <rect key="frame" x="1" y="0.0" width="408" height="218"/>
@@ -963,7 +966,7 @@
                 </viewController>
                 <customObject id="rUZ-c7-9Pn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677" y="-162"/>
+            <point key="canvasLocation" x="677" y="-143"/>
         </scene>
         <!--Pull Request View Controller-->
         <scene sceneID="ovU-kp-cWx">

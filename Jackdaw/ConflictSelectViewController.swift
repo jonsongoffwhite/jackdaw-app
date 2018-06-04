@@ -14,6 +14,8 @@ class ConflictSelectViewController: NSViewController {
     
     var project: AbletonProject?
     
+    var git: GitHandler!
+    
     var conflicts: [URL]?
     
     // true is ours, false is theirs
@@ -49,7 +51,19 @@ class ConflictSelectViewController: NSViewController {
     
     @IBAction func chosen(_ sender: Any?) {
         // do some git stuff
+        // git.resolve?
         // return to previous controller
+        
+        // all have been chosen
+        if self.conflictSolutions!.count ==  self.conflicts!.count {
+            print(self.conflictSolutions!.count)
+            print(self.conflicts!.count)
+            print(self.conflictSolutions!)
+            print(self.conflictSolutions! as! [URL: Bool])
+            git.resolve(with: self.conflictSolutions! as! [URL: Bool])
+            let appDelegate = NSApplication.shared.delegate as! AppDelegate
+            appDelegate.returnFromSchemeView()
+        }
     }
     
     @objc func radioSelected(_ sender: NSButton) {
@@ -73,6 +87,7 @@ class ConflictSelectViewController: NSViewController {
                 if sender.state == .on {
                     let conflict = self.conflicts![confIndex!]
                     self.conflictSolutions![conflict] = senderIndex! == 0
+                    print("setting \(conflict) to \(senderIndex!==0)")
                     print(Int(senderIndex!) == 0)
                     print(senderIndex! == 0)
                     print("setting state to on and other to off")
@@ -134,7 +149,7 @@ extension ConflictSelectViewController: NSTableViewDataSource, NSTableViewDelega
 }
 
 extension ConflictSelectViewController {
-    static func freshController(project: AbletonProject, conflicts: [String]) -> ConflictSelectViewController {
+    static func freshController(project: AbletonProject, git: GitHandler, conflicts: [String]) -> ConflictSelectViewController {
         // Get Main story board
         let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
         
@@ -144,6 +159,7 @@ extension ConflictSelectViewController {
             fatalError("Why cant i find ConflictSelectViewController? - Check Main.storyboard")
         }
         viewcontroller.project = project
+        viewcontroller.git = git
         print(conflicts)
         viewcontroller.conflicts = conflicts.map({ (str) -> URL in
             print(str)

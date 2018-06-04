@@ -89,21 +89,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     print("merge type scheme")
                     if let viewController = popover.contentViewController {
                         
-                        var project: AbletonProject!
+                        var project: AbletonProject?
+                        var git: GitHandler?
                         
                         // Coming from GitCommandsViewController
                         if let viewController = viewController as? GitCommandsViewController {
                             print("is currently GitCommandsViewController")
                             project = viewController.abletonProject
+                            git = viewController.git
                         } else if let viewController = viewController as? PullRequestViewController {
                             project = viewController.project
+                            git = viewController.git
                         }
                         
+                        if let project = project, let git = git {
                         
-                        let csvc = ConflictSelectViewController.freshController(project: project, conflicts: handler.args)
-                        print(handler.args)
-                        self.viewControllerStack.append(viewController)
-                        popover.contentViewController = csvc
+                            let csvc = ConflictSelectViewController.freshController(project: project, git: git, conflicts: handler.args)
+                            print(handler.args)
+                            self.viewControllerStack.append(viewController)
+                            popover.contentViewController = csvc
+                        }
                     }
                     
                 }
