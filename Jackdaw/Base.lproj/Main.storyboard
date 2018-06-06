@@ -850,9 +850,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="338"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZA5-O4-dCM">
-                                <rect key="frame" x="190" y="51" width="72" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZA5-O4-dCM">
+                                <rect key="frame" x="189" y="32" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qqD-jM-xTi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -861,10 +860,9 @@
                                     <action selector="chosen:" target="VvI-lo-Z7Y" id="kJp-Ju-gDV"/>
                                 </connections>
                             </button>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLT-WM-ppt">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLT-WM-ppt">
                                 <rect key="frame" x="20" y="99" width="410" height="219"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="sdx-KM-qF6">
+                                <clipView key="contentView" id="sdx-KM-qF6">
                                     <rect key="frame" x="1" y="0.0" width="408" height="218"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -892,14 +890,15 @@
                                                             <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7D-ls-nQn">
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m7D-ls-nQn">
                                                                     <rect key="frame" x="3" y="0.0" width="17" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="17" id="ak6-ek-7jx"/>
+                                                                    </constraints>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="3Q8-t7-apE"/>
                                                                 </imageView>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aYa-dx-gnh">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aYa-dx-gnh">
                                                                     <rect key="frame" x="25" y="0.0" width="91" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="dzb-Gr-pnd">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -907,6 +906,14 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="m7D-ls-nQn" firstAttribute="centerY" secondItem="RCV-9l-7nP" secondAttribute="centerY" id="DAN-JD-74R"/>
+                                                                <constraint firstItem="m7D-ls-nQn" firstAttribute="leading" secondItem="RCV-9l-7nP" secondAttribute="leading" constant="3" id="HVf-uY-BBl"/>
+                                                                <constraint firstAttribute="trailing" secondItem="aYa-dx-gnh" secondAttribute="trailing" constant="2" id="NdH-ol-ilb"/>
+                                                                <constraint firstItem="m7D-ls-nQn" firstAttribute="top" secondItem="aYa-dx-gnh" secondAttribute="top" id="fPb-dt-xUO"/>
+                                                                <constraint firstItem="aYa-dx-gnh" firstAttribute="leading" secondItem="m7D-ls-nQn" secondAttribute="trailing" constant="7" id="uPc-Yq-OZn"/>
+                                                                <constraint firstItem="m7D-ls-nQn" firstAttribute="bottom" secondItem="aYa-dx-gnh" secondAttribute="bottom" id="za3-6J-OUI"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="imageView" destination="m7D-ls-nQn" id="BDh-oi-noJ"/>
                                                                 <outlet property="textField" destination="aYa-dx-gnh" id="iCt-BD-v0L"/>
@@ -957,7 +964,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="cvM-UM-bZz">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="z9B-nn-IwD">
@@ -969,9 +976,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-4u-n5Y">
-                                <rect key="frame" x="58" y="51" width="82" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-4u-n5Y">
+                                <rect key="frame" x="14" y="32" width="82" height="32"/>
                                 <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PAE-8b-ghk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -984,6 +990,16 @@ Gw
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="WLT-WM-ppt" firstAttribute="leading" secondItem="eeV-4u-n5Y" secondAttribute="leading" id="HI7-d4-rSj"/>
+                            <constraint firstItem="eeV-4u-n5Y" firstAttribute="baseline" secondItem="ZA5-O4-dCM" secondAttribute="baseline" id="Igy-5X-2OS"/>
+                            <constraint firstItem="WLT-WM-ppt" firstAttribute="leading" secondItem="rl9-Cf-YIB" secondAttribute="leading" constant="20" symbolic="YES" id="N2z-o3-4kq"/>
+                            <constraint firstAttribute="bottom" secondItem="eeV-4u-n5Y" secondAttribute="bottom" constant="39" id="Oq0-VB-kwg"/>
+                            <constraint firstItem="WLT-WM-ppt" firstAttribute="top" secondItem="rl9-Cf-YIB" secondAttribute="top" constant="20" symbolic="YES" id="ic1-9L-ibp"/>
+                            <constraint firstAttribute="trailing" secondItem="WLT-WM-ppt" secondAttribute="trailing" constant="20" symbolic="YES" id="lwF-Gd-c8W"/>
+                            <constraint firstItem="WLT-WM-ppt" firstAttribute="centerX" secondItem="ZA5-O4-dCM" secondAttribute="centerX" id="rYd-qc-omO"/>
+                            <constraint firstItem="eeV-4u-n5Y" firstAttribute="top" secondItem="WLT-WM-ppt" secondAttribute="bottom" constant="39" id="roY-1q-Oe3"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="table" destination="ngP-NJ-O00" id="8hd-qX-lUd"/>
@@ -1143,7 +1159,7 @@ Gw
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="QCM-di-xyC">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aR0-iH-EKM">
