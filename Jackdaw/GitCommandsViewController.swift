@@ -87,6 +87,17 @@ class GitCommandsViewController: NSViewController {
         git.addChanged()
     }
     
+    func updateMergeBranchDropdown() {
+        var menu = self.mergeBranchDropdown.menu!
+        menu.removeAllItems()
+        git.getBranches().forEach { (branch) in
+            let name = branch.name != nil ? branch.name! : "unnamed branch"
+            let item = NSMenuItem(title: name, action: nil, keyEquivalent: "")
+            item.representedObject = branch
+            menu.addItem(item)
+        }
+    }
+    
     @IBAction func commitChangesAndPush(_ sender: Any?) {
         
         let vc = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "commit")) as! CommitViewController
@@ -125,6 +136,7 @@ class GitCommandsViewController: NSViewController {
             alert.messageText = "Unable to create branch"
             alert.runModal()
         }
+        self.updateMergeBranchDropdown()
     }
     
     private func showTextInput(withMessage message: String) -> String {

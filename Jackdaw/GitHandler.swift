@@ -23,6 +23,7 @@ enum GitError: Error {
     case mergeFailure
     case currentBranchInvalid
     case unableToCreateBranch
+    case unableToCommit
 }
 
 class GitHandler {
@@ -47,6 +48,10 @@ class GitHandler {
 
     init(for directory: URL) throws {
         self.directory = directory
+        
+        if !manager.fileExists(atPath: directory.appendingPathComponent(".git").path) {
+            let _ = Repository.create(at: directory)
+        }
         
         // SwitfGit2 repository
         let repoRes: Result = Repository.at(directory)
@@ -191,16 +196,14 @@ class GitHandler {
         
         let result = repo.commit(message: message, signature: sig)
         if let commit = result.value {
-            // Try and push the changes
-            self.pushToRemote()
-            
-            // Return commit
             return commit
         } else {
             print(result.error)
-            throw GitError.unableToCommitAll
+            throw GitError.unableToCommit
         }
     }
+    
+    
     
     func commitAllChanges(with message: String) throws -> Commit {
         addAllChanges()
@@ -487,6 +490,25 @@ class GitHandler {
             manager.createFile(atPath: blankProjURL.path, contents: localBlankProjData, attributes: nil)
         }
         
+        let gitignoreURL = directory.appendingPathComponent(".gitignore")
+        
+        let localGitignore = Bundle.main.url(forResource: "gitignore", withExtension: "", subdirectory: "als-merge-driver")!
+        let localGitignoreData = try! Data(contentsOf: localGitignore)
+        if !manager.fileExists(atPath: gitignoreURL.path) {
+            manager.createFile(atPath: gitignoreURL.path, contents: localGitignoreData, attributes: nil)
+        } else {
+            if let fileHandle = try? FileHandle(forWritingTo: gitignoreURL) {
+                let gitignoreContentString = try! String(contentsOf: gitignoreURL, encoding: .utf8)
+                let gitignoreString = try! String(contentsOf: localGitignore, encoding: .utf8)
+                
+                if gitignoreContentString.range(of: gitignoreString) == nil {
+                    // config setup not already in file
+                    fileHandle.seekToEndOfFile()
+                    fileHandle.write(gitignoreString.data(using: .utf8)!)
+                }
+                fileHandle.closeFile()
+            }
+        }
     }
     
     func gitStatus() -> Int32 {

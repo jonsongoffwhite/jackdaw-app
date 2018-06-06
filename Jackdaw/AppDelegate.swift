@@ -61,7 +61,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if domain == JACKDAW_DOMAIN {
                 let handler = URLSchemeHandler(message: message)
-                let alert = NSAlert()
                 
                 var git: GitHandler?, project: AbletonProject?
                 

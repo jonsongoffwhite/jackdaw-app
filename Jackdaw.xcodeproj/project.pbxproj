@@ -26,6 +26,10 @@
 		7E597E7120823DF8002E368D /* GitCommandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E597E7020823DF8002E368D /* GitCommandsViewController.swift */; };
 		7E5B683520A20B0D0001CF22 /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */; };
 		7E5B683620A20B0D0001CF22 /* ObjectiveGit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E78823720C5B99A0015A3A1 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4E89EF20A45AAC00C26343 /* KeychainAccess.framework */; };
+		7E78823820C5B99D0015A3A1 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50A20A3316600ABCE04 /* Result.framework */; };
+		7E78823920C5B9A00015A3A1 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; };
+		7E78823A20C5B9A20015A3A1 /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5B683420A20B0C0001CF22 /* ObjectiveGit.framework */; };
 		7E80F50C20A3316700ABCE04 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50A20A3316600ABCE04 /* Result.framework */; };
 		7E80F50D20A3316700ABCE04 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50A20A3316600ABCE04 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E80F50E20A3316700ABCE04 /* SwiftGit2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F50B20A3316700ABCE04 /* SwiftGit2.framework */; };
@@ -129,6 +133,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E78823720C5B99A0015A3A1 /* KeychainAccess.framework in Frameworks */,
+				7E78823A20C5B9A20015A3A1 /* ObjectiveGit.framework in Frameworks */,
+				7E78823920C5B9A00015A3A1 /* SwiftGit2.framework in Frameworks */,
+				7E78823820C5B99D0015A3A1 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +626,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = JackdawTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -639,6 +648,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = JackdawTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";

@@ -17,7 +17,7 @@ class GitHandlerTests: XCTestCase {
         
         // Setup test repo
         Repository.create(at: URL(fileURLWithPath: "test-repo"))
-        
+        print("setup")
     }
     
     override func tearDown() {
