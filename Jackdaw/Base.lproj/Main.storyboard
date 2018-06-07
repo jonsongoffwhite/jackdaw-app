@@ -828,6 +828,17 @@
                                     <action selector="newBranch:" target="XfG-lQ-9wD" id="lDO-IE-l9B"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="men-4e-AxS">
+                                <rect key="frame" x="14" y="184" width="132" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Commits" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wb3-0y-jwj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="seeCommits:" target="XfG-lQ-9wD" id="uEU-sJ-WOd"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -845,7 +856,7 @@
         <!--Version Select View Controller-->
         <scene sceneID="FWP-wl-FBI">
             <objects>
-                <viewController id="DGh-E0-gfq" customClass="VersionSelectViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VersionSelectViewController" id="DGh-E0-gfq" customClass="VersionSelectViewController" customModule="Jackdaw" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="aGv-Og-oXS">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -968,7 +979,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="mwe-5e-0qE">
-                                    <rect key="frame" x="1" y="284" width="448" height="15"/>
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="sy8-3D-yaN">
@@ -1307,7 +1318,7 @@ Gw
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="QCM-di-xyC">
-                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aR0-iH-EKM">

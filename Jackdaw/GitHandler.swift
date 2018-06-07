@@ -203,7 +203,7 @@ class GitHandler {
         }
     }
     
-    
+
     
     func commitAllChanges(with message: String) throws -> Commit {
         addAllChanges()
@@ -246,6 +246,17 @@ class GitHandler {
             print("unable to checkout to branch with name \(branchName)")
         }
     }
+    
+    func checkout(to commit: GTCommit) {
+        let options = GTCheckoutOptions(strategy: .safe)
+        do {
+            try ogRepo.checkoutCommit(commit, options: options)
+        } catch {
+            print(error)
+            print("Unable to checkout to commit")
+        }
+    }
+
     
     func merge(with branch: GTBranch) throws {
         let path = directory.path.replacingOccurrences(of: " ", with: "\\ ")
@@ -336,6 +347,22 @@ class GitHandler {
             print("unable to checkout to branch with name \(branchName)")
         }
         return nil
+    }
+    
+    func getCommits(count: Int) -> [GTCommit] {
+        let enumerator = try? GTEnumerator(repository: ogRepo)
+        try? enumerator?.pushHEAD()
+        var commits: [GTCommit] = []
+        if let enumerator = enumerator {
+            while let commit = try? enumerator.nextObject(withSuccess: nil) {
+                commits.append(commit)
+                if commits.count >= count {
+                    break
+                }
+            }
+        }
+        
+        return commits
     }
     
     func statusDescription() -> String {

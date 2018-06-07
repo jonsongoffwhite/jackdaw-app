@@ -193,6 +193,14 @@ class GitCommandsViewController: NSViewController {
         self.abletonProject.open(projectURL: projectURL!)
     }
     
+    @IBAction func seeCommits(_ sender: Any?) {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        let commits = git.getCommits(count: 100)
+        
+        let vsvc = VersionSelectViewController.freshController(commits: commits)
+        appDelegate.replaceContentViewController(with: vsvc)
+    }
+    
 }
 
 // MARK: MultiSelectDelegate implementation
@@ -218,5 +226,13 @@ extension GitCommandsViewController: CommitDelegate {
         } catch {
             print(error)
         }
+    }
+}
+
+// MARK: VersionSelectDelegate
+
+extension GitCommandsViewController: VersionSelectDelegate {
+    func checkout(to commit: GTCommit) {
+        git.checkout(to: commit)
     }
 }
