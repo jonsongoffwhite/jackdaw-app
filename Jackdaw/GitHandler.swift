@@ -185,7 +185,7 @@ class GitHandler {
             // error writing json to file
         }
     }
-    
+
     func commit(with message: String) throws -> Commit {
         let sig = Signature(
             name: "Jonson Goff-White",
@@ -202,7 +202,7 @@ class GitHandler {
             throw GitError.unableToCommit
         }
     }
-    
+
 
     
     func commitAllChanges(with message: String) throws -> Commit {

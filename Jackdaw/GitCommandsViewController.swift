@@ -54,10 +54,7 @@ class GitCommandsViewController: NSViewController {
         }
         
         // Show branch
-        let currentBranch = git.getCurrentBranch()
-        if let currentBranch = currentBranch {
-            self.currentBranch?.stringValue = currentBranch
-        }
+        updateCurrentBranchLabel()
         
         // populate projectFileDropdown
         self.projectFileDropdown.addItems(withTitles: self.abletonProject.projectFiles.map({ (url) -> String in
@@ -85,6 +82,13 @@ class GitCommandsViewController: NSViewController {
         //GIT_HANDLERS[directory!] = git
             
         git.addChanged()
+    }
+    
+    func updateCurrentBranchLabel() {
+        let currentBranch = git.getCurrentBranch()
+        if let currentBranch = currentBranch {
+            self.currentBranch?.stringValue = currentBranch
+        }
     }
     
     func updateMergeBranchDropdown() {
@@ -131,6 +135,7 @@ class GitCommandsViewController: NSViewController {
         let branch = try? git.createBranch(with: branchName)
         if let branch = branch {
             git.checkout(to: branch)
+            updateCurrentBranchLabel()
         } else {
             let alert = NSAlert()
             alert.messageText = "Unable to create branch"
@@ -211,9 +216,7 @@ extension GitCommandsViewController: MultiSelectDelegate {
         // make more general
         git.checkout(to: selected as! GTBranch)
         
-        if let currentBranch = git.getCurrentBranch() {
-            self.currentBranch?.stringValue = currentBranch
-        }
+        updateCurrentBranchLabel()
     }
 }
 
@@ -235,4 +238,5 @@ extension GitCommandsViewController: VersionSelectDelegate {
     func checkout(to commit: GTCommit) {
         git.checkout(to: commit)
     }
+    // TODO: Implement a way of showing the current version (even if it's not actually a branch)
 }
