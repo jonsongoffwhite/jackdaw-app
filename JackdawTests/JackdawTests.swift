@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Jackdaw
+
 
 class JackdawTests: XCTestCase {
     
