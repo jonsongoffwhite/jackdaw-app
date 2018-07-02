@@ -24,6 +24,7 @@ class VersionSelectViewController: NSViewController {
         self.table.dataSource = self
         
         let chooseCommit: Selector = #selector(VersionSelectViewController.chooseCommit)
+        self.table.doubleAction = chooseCommit
         
     }
     
@@ -75,6 +76,10 @@ extension VersionSelectViewController: NSTableViewDataSource, NSTableViewDelegat
             }
         }
     }
+    
+    @IBAction func back(_ sender: Any?) {
+        dismiss(self)
+    }
 }
 
 extension VersionSelectViewController {
@@ -86,13 +91,10 @@ extension VersionSelectViewController {
         // Get ViewController with identifier VersionSelectViewController
         let identifier = NSStoryboard.SceneIdentifier(rawValue: "VersionSelectViewController")
         let vc = storyboard.instantiateController(withIdentifier: identifier)
-        print(vc is VersionSelectViewController)
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? VersionSelectViewController else {
-            print(identifier)
             fatalError("Why cant i find VersionSelectViewController? - Check Main.storyboard")
         }
         viewcontroller.commits = commits
-        print(commits.count)
         return viewcontroller
     }
 }

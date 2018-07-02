@@ -139,6 +139,9 @@ extension ConflictSelectViewController: NSTableViewDataSource, NSTableViewDelega
             
                 cell.textField?.stringValue = self.conflicts![row].lastPathComponent
                 
+                //temporary
+                cell.textField?.stringValue = "Conflict 1"
+                
                 return cell
             }
         }

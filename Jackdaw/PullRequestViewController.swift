@@ -27,7 +27,6 @@ class PullRequestViewController: NSViewController {
     var branch: String!
     
     override func viewDidLoad() {
-        print("called")
         branchButtonA.data = base
         branchButtonA.title = String(base.split(separator: ":")[1])
         branchButtonA.sizeToFit()
@@ -47,6 +46,11 @@ class PullRequestViewController: NSViewController {
         projectFileDropdown.menu = menu
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        preferredContentSize = NSSize(width: 400, height: 280)
+    }
+    
     @IBAction func checkoutAndLoad(_ sender: Any) {
         // Could actually just be a commit I think
         // Or maybe a remote branch that is not yet on local
@@ -58,7 +62,6 @@ class PullRequestViewController: NSViewController {
             git.checkout(toBranchWithName: data)
             project.open(projectURL: projectFileDropdown.selectedItem?.representedObject as! URL)
         }
-        print(git.getCurrentBranch())
     }
     
     @IBAction func merge(_ sender: Any) {

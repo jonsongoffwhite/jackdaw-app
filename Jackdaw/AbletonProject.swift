@@ -36,8 +36,6 @@ class AbletonProject {
         return url
     }
     
-    // var git: GitHandler
-    
     func open(projectURL: URL) {
         NSWorkspace.shared.open(projectURL)
     }

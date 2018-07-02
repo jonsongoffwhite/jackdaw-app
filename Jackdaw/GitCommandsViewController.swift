@@ -40,6 +40,7 @@ class GitCommandsViewController: NSViewController {
                 git = try GitHandler(for: dir)
                 CURRENT_GIT_HANDLER = git
                 projectName.stringValue = String(dir.path.split(separator: "/").last!)
+                //projectName.stringValue = "My Project"
                 
                 self.abletonProject = AbletonProject(directory: dir)
                 
@@ -199,11 +200,12 @@ class GitCommandsViewController: NSViewController {
     }
     
     @IBAction func seeCommits(_ sender: Any?) {
-        let appDelegate = NSApplication.shared.delegate as! AppDelegate
         let commits = git.getCommits(count: 100)
         
         let vsvc = VersionSelectViewController.freshController(commits: commits)
-        appDelegate.replaceContentViewController(with: vsvc)
+        
+        vsvc.delegate = self
+        self.presentViewControllerAsSheet(vsvc)
     }
     
 }
@@ -238,5 +240,5 @@ extension GitCommandsViewController: VersionSelectDelegate {
     func checkout(to commit: GTCommit) {
         git.checkout(to: commit)
     }
-    // TODO: Implement a way of showing the current version (even if it's not actually a branch)
+    // TODO: Implement a way of showing the current version (even if it's not actually a branch) 
 }
